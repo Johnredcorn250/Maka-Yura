@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Maka & Yura Products — Perfumes & Clarins Retail</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --plum:#6f5a67;
+      --plum-deep:#4a3742;
+      --rose:#a67886;
+      --ivory:#f8f4f1;
+      --warm:#fdfbf8;
+      --stone:#ddd3cc;
+      --taupe:#b8aaa1;
+      --charcoal:#1f1d1d;
+      --soft:#5a5450;
+      --line:rgba(74,55,66,.12);
+      --card:#fffdfa;
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{
+      font-family:'Montserrat',sans-serif;
+      background:var(--ivory);
+      color:var(--charcoal);
+      line-height:1.6;
+      -webkit-font-smoothing:antialiased;
+      text-rendering:optimizeLegibility;
+    }
+    img{display:block;max-width:100%}
+    a{text-decoration:none;color:inherit}
+    .container{width:min(1180px,calc(100% - 2.4rem));margin:0 auto}
+    .nav{
+      position:sticky;top:0;z-index:50;
+      background:rgba(253,251,248,.92);
+      backdrop-filter:blur(12px);
+      border-bottom:1px solid var(--line);
+    }
+    .nav-inner{display:flex;justify-content:space-between;align-items:center;padding:1rem 0;gap:1rem}
+    .brand{font-family:'Playfair Display',serif;font-size:1.45rem;color:var(--plum-deep);font-weight:700}
+    .brand span{font-style:italic;color:var(--plum)}
+    .nav-links{display:flex;gap:1.25rem;align-items:center;flex-wrap:wrap}
+    .nav-links a{font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:var(--soft)}
+    .nav-links a:hover{color:var(--plum-deep)}
+    .btn{
+      display:inline-flex;align-items:center;justify-content:center;gap:.55rem;
+      padding:.95rem 1.35rem;border-radius:999px;font-weight:600;
+      font-size:.82rem;letter-spacing:.08em;text-transform:uppercase;
+      transition:.25s ease;cursor:pointer;border:1px solid transparent;
+    }
+    .btn-primary{background:var(--plum-deep);color:#fff}
+    .btn-primary:hover{background:var(--plum)}
+    .btn-outline{border-color:var(--plum-deep);color:var(--plum-deep);background:transparent}
+    .btn-outline:hover{background:var(--plum-deep);color:#fff}
+    .hero{padding:5.5rem 0 4rem;background:linear-gradient(180deg,var(--warm),#f4eeea 100%)}
+    .eyebrow{font-size:.72rem;letter-spacing:.26em;text-transform:uppercase;color:var(--rose);margin-bottom:1rem}
+    h1,h2,h3{font-family:'Playfair Display',serif;line-height:1.1;color:var(--plum-deep)}
+    h1{font-size:clamp(2.8rem,7vw,5.3rem);max-width:9ch;margin-bottom:1rem}
+    .hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:2rem;align-items:center}
+    .hero-copy p{max-width:58ch;color:var(--soft);font-size:1.04rem;margin-bottom:1.5rem}
+    .hero-actions{display:flex;gap:.9rem;flex-wrap:wrap}
+    .hero-card{
+      background:var(--card);border:1px solid var(--line);border-radius:28px;overflow:hidden;
+      box-shadow:0 18px 50px rgba(74,55,66,.08)
+    }
+    .hero-card img{width:100%;height:430px;object-fit:cover}
+    .hero-card-body{padding:1.2rem 1.25rem}
+    .hero-card-title{font-size:1.25rem;margin-bottom:.35rem}
+    .hero-card-text{font-size:.95rem;color:var(--soft)}
+    section{padding:4.5rem 0}
+    .section-head{display:flex;justify-content:space-between;gap:1.25rem;align-items:end;margin-bottom:2rem}
+    .section-head p{max-width:50ch;color:var(--soft)}
+    .category-pills{display:flex;gap:.7rem;flex-wrap:wrap;margin-top:1.1rem}
+    .pill{padding:.55rem .95rem;border:1px solid var(--line);border-radius:999px;background:#fff;font-size:.82rem;color:var(--soft)}
+    .featured-grid,.product-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem}
+    .feature-card,.product-card{
+      background:var(--card);border:1px solid var(--line);border-radius:24px;overflow:hidden;
+      box-shadow:0 14px 36px rgba(74,55,66,.06)
+    }
+    .feature-card img,.product-card img{width:100%;height:270px;object-fit:cover;background:#f0ebe7}
+    .card-body{padding:1.15rem 1.1rem 1.2rem}
+    .tag{display:inline-block;padding:.35rem .65rem;background:#f2e8ec;color:var(--plum-deep);border-radius:999px;font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;font-weight:700;margin-bottom:.75rem}
+    .card-title{font-size:1.35rem;margin-bottom:.45rem}
+    .card-text{font-size:.95rem;color:var(--soft);margin-bottom:1rem}
+    .product-meta{display:flex;justify-content:space-between;gap:.8rem;align-items:center;margin:.85rem 0 1rem}
+    .meta-type{font-size:.76rem;letter-spacing:.12em;text-transform:uppercase;color:var(--rose);font-weight:700}
+    .meta-note{font-size:.8rem;color:var(--taupe)}
+    .cta-row{display:flex;gap:.7rem;flex-wrap:wrap}
+    .collections{background:#f5efeb;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+    .collection-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem}
+    .collection-card{background:#fff;border:1px solid var(--line);border-radius:20px;padding:1.1rem}
+    .collection-card h3{font-size:1.1rem;margin-bottom:.35rem}
+    .collection-card p{font-size:.92rem;color:var(--soft)}
+    .inquiry{background:linear-gradient(180deg,#fff,#f7f2ef)}
+    .inquiry-box{background:var(--card);border:1px solid var(--line);border-radius:28px;padding:1.4rem;box-shadow:0 16px 40px rgba(74,55,66,.06)}
+    .inquiry-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:1rem}
+    .info-item{padding:1rem;border:1px solid var(--line);border-radius:18px;background:#fff}
+    .info-item strong{display:block;color:var(--plum-deep);margin-bottom:.35rem}
+    .info-item span{color:var(--soft);font-size:.95rem}
+    .footer{padding:2rem 0 3rem;color:var(--soft)}
+    .footer-inner{display:flex;justify-content:space-between;gap:1rem;align-items:center;border-top:1px solid var(--line);padding-top:1.3rem}
+    @media (max-width: 1024px){
+      .featured-grid,.product-grid{grid-template-columns:repeat(2,1fr)}
+      .collection-grid{grid-template-columns:repeat(2,1fr)}
+      .hero-grid,.inquiry-grid{grid-template-columns:1fr}
+      .hero-card img{height:360px}
+    }
+    @media (max-width: 700px){
+      .featured-grid,.product-grid,.collection-grid{grid-template-columns:1fr}
+      .nav-inner,.footer-inner{flex-direction:column;align-items:flex-start}
+      h1{max-width:none}
+      .hero{padding-top:4.2rem}
+      .hero-card img,.feature-card img,.product-card img{height:240px}
+    }
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <div class="container nav-inner">
+      <div class="brand">Maka <span>&amp; Yura</span></div>
+      <div class="nav-links">
+        <a href="#featured">Featured</a>
+        <a href="#products">Products</a>
+        <a href="#collections">Collections</a>
+        <a href="#inquire">Inquire</a>
+        <a href="makayura-spa.html" class="btn btn-outline" style="padding:.7rem 1rem">Back to Spa</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div class="container hero-grid">
+      <div class="hero-copy">
+        <div class="eyebrow">Retail Boutique</div>
+        <h1>Perfumes &amp; Clarins products, curated for everyday luxury.</h1>
+        <p>Discover a handpicked retail selection from Maka &amp; Yura Beauty Spa, including Clarins skincare, Clarins Men essentials, and iconic fragrances. Browse the collection, then contact the spa directly to confirm availability and purchase.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#products">Shop the selection</a>
+          <a class="btn btn-outline" href="https://www.instagram.com/makayuraspa/" target="_blank" rel="noopener">Ask on Instagram</a>
+        </div>
+      </div>
+      <div class="hero-card">
+        <img src="guccifloragorgeousgardenia.jpg" alt="Gucci Flora Gorgeous Gardenia perfume bottle and box">
+        <div class="hero-card-body">
+          <h2 class="hero-card-title">Signature fragrance picks</h2>
+          <p class="hero-card-text">A polished retail page for the spa's perfumes and premium skincare, built to help visitors browse first and inquire easily.</p>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section id="featured">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <div class="eyebrow">Featured highlights</div>
+          <h2>Best first impressions</h2>
+        </div>
+        <p>These hero products help the page feel premium right away and showcase both sides of the retail offering: luxury fragrance and trusted Clarins care.</p>
+      </div>
+      <div class="featured-grid">
+        <article class="feature-card">
+          <img src="clarinsbrightplus.jpg" alt="Clarins Bright Plus dark spot-targeting treatment essence">
+          <div class="card-body">
+            <div class="tag">Clarins skincare</div>
+            <h3 class="card-title">Bright Plus Essence</h3>
+            <p class="card-text">A brightening treatment essence positioned around radiance and dark-spot care, ideal for the spa’s skincare retail shelf.</p>
+            <div class="cta-row">
+              <a class="btn btn-primary" href="https://www.instagram.com/makayuraspa/" target="_blank" rel="noopener">Inquire to buy</a>
+            </div>
+          </div>
+        </article>
+        <article class="feature-card">
+          <img src="giorgioarmaniperfume.jpg" alt="Giorgio Armani Si eau de parfum bottle">
+          <div class="card-body">
+            <div class="tag">Perfume</div>
+            <h3 class="card-title">Giorgio Armani Sì</h3>
+            <p class="card-text">A recognizable fragrance classic that gives the retail page an aspirational, boutique fragrance-store feel.</p>
+            <div class="cta-row">
+              <a class="btn btn-primary" href="https://www.instagram.com/makayuraspa/" target="_blank" rel="noopener">Inquire to buy</a>
+            </div>
+          </div>
+        </article>
+        <article class="feature-card">
+          <img src="guerlainpetiterobenoir.jpg" alt="Guerlain La Petite Robe Noire perfume bottle">
+          <div class="card-body">
+            <div class="tag">Perfume</div>
+            <h3 class="card-title">La Petite Robe Noire</h3>
+            <p class="card-text">An elegant fragrance choice that adds variety and reinforces the spa’s luxury perfume offering.</p>
+            <div class="cta-row">
+              <a class="btn btn-primary" href="https://www.instagram.com/makayuraspa/" target="_blank" rel="noopener">Inquire to buy</a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="collections" id="collections">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <div class="eyebrow">Collections</div>
+          <h2>Browse by interest</h2>
+        </div>
+        <div class="category-pills">
+          <span class="pill">Clarins Skincare</span>
+          <span class="pill">Clarins Men</span>
+          <span class="pill">Perfumes</span>
+          <span class="pill">Boutique Selection</span>
+        </div>
+      </div>
+      <div class="collection-grid">
+        <div class="collection-card">
+          <h3>Glow &amp; radiance</h3>
+          <p>Products that visually communicate brightness, smoothing, hydration, and refreshed-looking skin.</p>
+        </div>
+        <div class="collection-card">
+          <h3>Body care</h3>
+          <p>Retail products that complement spa visits and help clients continue the experience at home.</p>
+        </div>
+        <div class="collection-card">
+          <h3>Clarins Men</h3>
+          <p>A clear men’s shelf with cleansing, moisture, and line-care options in a distinct visual range.</p>
+        </div>
+        <div class="collection-card">
+          <h3>Fragrance boutique</h3>
+          <p>Recognizable perfume names that make the spa feel like a destination for both treatments and retail discovery.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="products">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <div class="eyebrow">Product selection</div>
+          <h2>Retail products available for inquiry</h2>
+        </div>
+        <p>Prices are not shown here, so each card guides visitors to contact the spa directly for stock confirmation, current pricing, and purchase arrangements.</p>
+      </div>
+
+      <div class="product-grid">
+        <article class="product-card">
+          <img src="clarinsbrightplus.jpg" alt="Clarins Bright Plus essence">
+          <div class="card-body">
+            <div class="tag">Clarins skincare</div>
+            <h3 class="card-title">Bright Plus</h3>
+            <p class="card-text">Dark spot-targeting treatment essence.</p>
+            <div class="product-meta"><span class="meta-type">Skincare</span><span class="meta-note">Price on request</span></div>
+            <div class="cta-row"><a class="btn btn-primary" href="https://www.instagram.com/makayuraspa/" target="_blank">Inquire</a></div>
+          </div>
+        </article>
+
+        <article class="product-card">
+          <img src="clarinscryofacemask.jpg" alt="Clarins Cryo-Flash Cream-Mask">
+          <div class="card-body">
+            <div class="tag">Clarins skincare</div>
+            <h3 class="card-title">Cryo-Flash Cream-Mask</h3>
+            <p class="card-text">Instant tightening, firming, and glow-boosting face mask.</p>
+            <div class="product-meta"><span class="meta-type">Mask</span><span class="meta-note">Price on request</span></div>
+            <div class="cta-row"><a class="btn btn-primary" href="https://www.instagram.com/makayuraspa/" target="_blank">Inquire</a></div>
+          </div>
+        </article>
+
+        <article class="product-card">
+          <img src="clarinsmultiintensive.jpg" alt="Clarins Multi-Intensive smoothing treatment essence">
+          <div class="card-body">
+            <div class="tag">Clarins skincare</div>
+            <h3 class="card-title">Multi-Intensive Essence</h3>
+            <p class="card-text">Super restorative smoothing treatment essence from the Clarins range.</p>
+            <div class="product-meta"><span class="meta-type">Treatment</span><span class="meta-note">Price on request</span></div>
+            <div class="cta-row"><a class="btn btn-primary" href="https://www.instagram.com/makayuraspa/" target="_blank">Inquire</a></div>
+          </div>
+        </article>
+
+        <article class="product-card">
+          <img src="clarinslaitcorps.jpg" alt="Clarins Body-Smoothing Moisture Milk with aloe vera">
+          <div class="card-body">
+            <div class="tag">Clarins body care</div>
+            <h3 class="card-title">Body-Smoothing Moisture Milk</h3>
+            <p class="card-text">Aloe vera body moisturizer for normal skin.</p>
+            <div class="product-meta"><span class="meta-type">Body care</span><span class="meta-note">Price on request</span></div>
+            <div class="cta-row"><a class="btn btn-primary" href="https://www.instagram.com/makayuraspa/" target="_blank">Inquire</a></div>
+          </div>
+        </article>
+
+        <article class="product-card">
+          <img src="clarinseaudynamisante.jpg" alt="Clarins Eau Dynamisante fragrance bottle">
+          <div class="card-body">
+            <div class="tag">Clarins fragrance</div>
+            <h3 class="card-title">Eau Dynamisante</h3>
+            <p class="card-text">A Clarins fragrance and body-care classic with a wellness-oriented positioning.</p>
+            <div class="product-meta"><span class="meta-type">Fragrance</span><span class="meta-note">Price on request</span></div>
+            <div class="cta-row"><a class="btn btn-primary" href="https://www.instagram.com/makayuraspa/" target="_blank">Inquire</a></div>
+          </div>
+        </article>
+
+        <article class="product-card">
+          <img src="clarinsmensfacewash.jpg" alt="Clarins Men active face wash tube">
+          <div class="card-body">
+            <div class="tag">Clarins Men</div>
+            <h3 class="card-title">Active Face Wash</h3>
+            <p class="card-text">Foaming face wash positioned for purifying and detoxifying care.</p>
+            <div class="product-meta"><span class="meta-type">Cleanser</span><span class="meta-note">Price on request</span></div>
+            <div class="cta-row"><a class="btn btn-primary" href="https://www.instagram.com/makayuraspa/" target="_blank">Inquire</a></div>
+          </div>
+        </article>
+
+        <article class="product-card">
+          <img src="clarinslinecontrolmen.jpg" alt="Clarins Men Line-Control Cream bottle">
+          <div class="card-body">
+            <div class="tag">Clarins Men</div>
+            <h3 class="card-title">Line-Control Cream</h3>
+            <p class="card-text">Anti-rides fermeté cream presented for dry skin and firming care.</p>
+            <div class="product-meta"><span class="meta-type">Men's treatment</span><span class="meta-note">Price on request</span></div>
+            <div class="cta-row"><a class="btn btn-primary" href="https://www.instagram.com/makayuraspa/" target="_blank">Inquire</a></div>
+          </div>
+        </article>
+
+        <article class="product-card">
+          <img src="clarinsmensgelhydratant.jpg" alt="Clarins Men moisture range bottles">
+          <div class="card-body">
+            <div class="tag">Clarins Men</div>
+            <h3 class="card-title">Hydration Range</h3>
+            <p class="card-text">A retail set featuring super moisture balm, gel, and lotion options.</p>
+            <div class="product-meta"><span class="meta-type">Men's moisture</span><span class="meta-note">Price on request</span></div>
+            <div class="cta-row"><a class="btn btn-primary" href="https://www.instagram.com/makayuraspa/" target="_blank">Inquire</a></div>
+          </div>
+        </article>
+
+        <article class="product-card">
+          <img src="bvglariomnia.jpg" alt="Bvlgari Omnia Coral fragrance image">
+          <div class="card-body">
+            <div class="tag">Perfume</div>
+            <h3 class="card-title">Bvlgari Omnia Coral</h3>
+            <p class="card-text">A vibrant women’s fragrance visual that adds bold color to the perfume lineup.</p>
+            <div class="product-meta"><span class="meta-type">Women's fragrance</span><span class="meta-note">Price on request</span></div>
+            <div class="cta-row"><a class="btn btn-primary" href="https://www.instagram.com/makayuraspa/" target="_blank">Inquire</a></div>
+          </div>
+        </article>
+
+        <article class="product-card">
+          <img src="giorgioarmaniperfume.jpg" alt="Giorgio Armani Si perfume">
+          <div class="card-body">
+            <div class="tag">Perfume</div>
+            <h3 class="card-title">Giorgio Armani Sì</h3>
+            <p class="card-text">An elegant eau de parfum with timeless boutique appeal.</p>
+            <div class="product-meta"><span class="meta-type">Women's fragrance</span><span class="meta-note">Price on request</span></div>
+            <div class="cta-row"><a class="btn btn-primary" href="https://www.instagram.com/makayuraspa/" target="_blank">Inquire</a></div>
+          </div>
+        </article>
+
+        <article class="product-card">
+          <img src="guccifloragorgeousgardenia.jpg" alt="Gucci Flora Gorgeous Gardenia perfume bottle and box">
+          <div class="card-body">
+            <div class="tag">Perfume</div>
+            <h3 class="card-title">Gucci Flora Gorgeous Gardenia</h3>
+            <p class="card-text">A floral fragrance pick with standout packaging that works beautifully on a retail page.</p>
+            <div class="product-meta"><span class="meta-type">Women's fragrance</span><span class="meta-note">Price on request</span></div>
+            <div class="cta-row"><a class="btn btn-primary" href="https://www.instagram.com/makayuraspa/" target="_blank">Inquire</a></div>
+          </div>
+        </article>
+
+        <article class="product-card">
+          <img src="guccifloragorgeousjasmine.jpg" alt="Gucci Flora Gorgeous Jasmine perfume bottle and box">
+          <div class="card-body">
+            <div class="tag">Perfume</div>
+            <h3 class="card-title">Gucci Flora Gorgeous Jasmine</h3>
+            <p class="card-text">A second Gucci Flora option that adds variety within the fragrance selection.</p>
+            <div class="product-meta"><span class="meta-type">Women's fragrance</span><span class="meta-note">Price on request</span></div>
+            <div class="cta-row"><a class="btn btn-primary" href="https://www.instagram.com/makayuraspa/" target="_blank">Inquire</a></div>
+          </div>
+        </article>
+
+        <article class="product-card">
+          <img src="guerlainpetiterobenoir.jpg" alt="Guerlain La Petite Robe Noire perfume bottle">
+          <div class="card-body">
+            <div class="tag">Perfume</div>
+            <h3 class="card-title">Guerlain La Petite Robe Noire</h3>
+            <p class="card-text">A refined fragrance image that reinforces the premium perfume assortment.</p>
+            <div class="product-meta"><span class="meta-type">Women's fragrance</span><span class="meta-note">Price on request</span></div>
+            <div class="cta-row"><a class="btn btn-primary" href="https://www.instagram.com/makayuraspa/" target="_blank">Inquire</a></div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="inquiry" id="inquire">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <div class="eyebrow">How to purchase</div>
+          <h2>Ask about availability and pricing</h2>
+        </div>
+        <p>This page is designed as a browsing and inquiry experience. Clients can view the collection first, then contact Maka &amp; Yura to confirm what is currently in stock.</p>
+      </div>
+      <div class="inquiry-box">
+        <div class="cta-row" style="margin-bottom:1rem">
+          <a class="btn btn-primary" href="tel:+250787305898">Call: +250 787 305 898</a>
+          <a class="btn btn-outline" href="https://www.instagram.com/makayuraspa/" target="_blank" rel="noopener">Instagram DM</a>
+          <a class="btn btn-outline" href="https://www.facebook.com/MakaYuraSpa/" target="_blank" rel="noopener">Facebook</a>
+        </div>
+        <div class="inquiry-grid">
+          <div class="info-item">
+            <strong>Suggested inquiry message</strong>
+            <span>Hello Maka &amp; Yura, I would like to ask about the availability and current price of [product name]. Please let me know how I can purchase it.</span>
+          </div>
+          <div class="info-item">
+            <strong>Best use for this page</strong>
+            <span>Link this page from the main website navigation as “Products” or “Boutique,” so visitors can browse the retail side of the spa separately from treatments.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div>
+        <strong style="color:var(--plum-deep)">Maka &amp; Yura Products</strong><br>
+        <span>Perfumes, Clarins skincare, and Clarins Men essentials.</span>
+      </div>
+      <div>Designed as a separate linked products page for the Maka &amp; Yura website.</div>
+    </div>
+  </footer>
+</body>
+</html>
