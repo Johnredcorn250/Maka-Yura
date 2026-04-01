@@ -9,14 +9,14 @@
     /* ─── TOKENS ─────────────────────────────────────────── */
     :root {
       --plum:        #6f5a67;
-      --plum-deep:   #56424f;
+      --plum-deep:   #4a3742;
       --mauve:       #8a7480;
       --ivory:       #f7f4f1;
       --warm-white:  #fdfbf8;
       --stone:       #d8cfc8;
       --taupe:       #b7aaa1;
-      --charcoal:    #2b2a2a;
-      --soft-text:   #6b6460;
+      --charcoal:    #1c1b1b;
+      --soft-text:   #4f4945;
       --sage-soft:   #a8b39f;
 
       /* legacy aliases kept so existing styling updates cleanly */
@@ -43,6 +43,8 @@
       background: var(--warm-white);
       color: var(--charcoal);
       overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
     }
     img { display: block; max-width: 100%; }
     a { text-decoration: none; color: inherit; }
@@ -75,7 +77,7 @@
       font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase;
     }
     .nav-links a {
-      color: var(--soft-text); opacity: 0.95;
+      color: var(--plum-deep); opacity: 0.95;
       transition: opacity 0.3s, color 0.3s;
       position: relative;
     }
@@ -143,7 +145,7 @@
       font-size: clamp(3.5rem, 8vw, 7rem);
       font-weight: 400; line-height: 1.05;
       text-align: center; letter-spacing: 0.02em;
-      color: var(--charcoal);
+      color: var(--plum-deep);
       opacity: 0;
       animation: fadeUp 1s ease 0.55s forwards;
       position: relative; z-index: 1;
@@ -172,12 +174,12 @@
       font-family: 'Montserrat', sans-serif;
       font-size: 0.65rem; letter-spacing: 0.25em; text-transform: uppercase;
       padding: 1rem 2.8rem;
-      background: var(--plum); color: var(--warm-white);
+      background: var(--plum-deep); color: var(--warm-white);
       font-weight: 600; border: none; cursor: pointer;
       transition: transform 0.3s, box-shadow 0.3s;
       display: inline-block;
     }
-    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(111,90,103,0.22); }
+    .btn-primary:hover { background: var(--plum); transform: translateY(-2px); box-shadow: 0 10px 30px rgba(111,90,103,0.22); }
     .btn-outline {
       font-family: 'Montserrat', sans-serif;
       font-size: 0.65rem; letter-spacing: 0.25em; text-transform: uppercase;
@@ -216,7 +218,7 @@
       font-family: 'Playfair Display', serif;
       font-size: clamp(2.2rem, 4vw, 3.5rem);
       font-weight: 400; line-height: 1.15;
-      color: var(--cream);
+      color: var(--plum-deep);
     }
     .section-title em { font-style: italic; color: var(--plum); }
 
@@ -354,7 +356,7 @@
     .service-name {
       font-family: 'Playfair Display', serif;
       font-size: 1.5rem; font-weight: 400;
-      color: var(--charcoal); margin-bottom: 0.8rem;
+      color: var(--plum-deep); margin-bottom: 0.8rem;
       line-height: 1.2;
     }
     .service-desc {
@@ -549,7 +551,7 @@
     }
     .contact-value {
       font-family: 'Playfair Display', serif;
-      font-size: 1.3rem; color: var(--charcoal); line-height: 1.6;
+      font-size: 1.3rem; color: var(--plum-deep); line-height: 1.6;
     }
     .contact-value a { transition: color 0.3s; }
     .contact-value a:hover { color: var(--plum); }
