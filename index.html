@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -512,6 +513,177 @@
       color: var(--plum-deep);
       white-space: nowrap;
     }
+    .menu-card-book {
+      margin-top: 1.4rem;
+    }
+
+    /* ─── BOOKING FLOW ───────────────────────────────────── */
+    .booking-steps {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.25rem;
+      margin: 2.5rem 0 3rem;
+    }
+    .booking-step {
+      background: rgba(253,251,248,0.8);
+      border: 1px solid rgba(111,90,103,0.12);
+      padding: 1.6rem 1.4rem;
+      text-align: left;
+      box-shadow: 0 12px 24px rgba(74,55,66,0.04);
+    }
+    .booking-step-num {
+      display: inline-flex;
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 0.9rem;
+      background: var(--plum-deep);
+      color: var(--warm-white);
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.7rem;
+      letter-spacing: 0.08em;
+    }
+    .booking-step h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.35rem;
+      color: var(--plum-deep);
+      margin-bottom: 0.55rem;
+    }
+    .booking-step p {
+      color: var(--soft-text);
+      line-height: 1.75;
+      font-size: 1rem;
+    }
+    .booking-planner {
+      max-width: 980px;
+      margin: 3rem auto 0;
+      background: rgba(253,251,248,0.84);
+      border: 1px solid rgba(111,90,103,0.12);
+      box-shadow: 0 18px 40px rgba(74,55,66,0.06);
+      padding: 2rem;
+      text-align: left;
+      position: relative;
+      z-index: 1;
+    }
+    .booking-planner-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 1rem;
+      margin-bottom: 1.4rem;
+    }
+    .booking-planner-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      color: var(--plum-deep);
+      line-height: 1.15;
+    }
+    .booking-planner-note {
+      color: var(--soft-text);
+      line-height: 1.7;
+      max-width: 420px;
+      font-size: 1rem;
+    }
+    .booking-form {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1rem 1.1rem;
+    }
+    .field {
+      display: flex;
+      flex-direction: column;
+      gap: 0.45rem;
+    }
+    .field.full {
+      grid-column: 1 / -1;
+    }
+    .field label {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.58rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--plum-deep);
+    }
+    .field input,
+    .field select,
+    .field textarea {
+      width: 100%;
+      padding: 0.95rem 1rem;
+      border: 1px solid rgba(111,90,103,0.16);
+      background: var(--warm-white);
+      color: var(--charcoal);
+      font: inherit;
+      font-size: 1rem;
+      outline: none;
+      transition: border-color 0.3s, box-shadow 0.3s;
+    }
+    .field input:focus,
+    .field select:focus,
+    .field textarea:focus {
+      border-color: var(--plum);
+      box-shadow: 0 0 0 3px rgba(111,90,103,0.08);
+    }
+    .field textarea {
+      min-height: 120px;
+      resize: vertical;
+      line-height: 1.6;
+    }
+    .planner-output {
+      margin-top: 1.4rem;
+      padding: 1rem 1.1rem;
+      background: #faf5f2;
+      border: 1px solid rgba(111,90,103,0.12);
+    }
+    .planner-output-title {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.58rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--plum-deep);
+      margin-bottom: 0.55rem;
+    }
+    .planner-message {
+      white-space: pre-wrap;
+      color: var(--soft-text);
+      line-height: 1.75;
+      font-size: 1rem;
+      min-height: 90px;
+    }
+    .planner-actions {
+      margin-top: 1rem;
+      display: flex;
+      gap: 0.85rem;
+      flex-wrap: wrap;
+    }
+    .planner-helper {
+      margin-top: 0.85rem;
+      color: var(--soft-text);
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+    .floating-book {
+      position: fixed;
+      right: 1.25rem;
+      bottom: 1.25rem;
+      z-index: 99;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      padding: 0.9rem 1.2rem;
+      border-radius: 999px;
+      background: var(--plum-deep);
+      color: var(--warm-white);
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.62rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      box-shadow: 0 16px 34px rgba(74,55,66,0.2);
+    }
+    .floating-book:hover {
+      background: var(--plum);
+    }
 
     /* ─── EXPERIENCE STRIP ───────────────────────────────── */
     .experience {
@@ -1005,14 +1177,13 @@
         </h2>
       </div>
       <p class="services-intro reveal reveal-delay-2">
-        At Maka & Yura, we offer two ways to experience our services.
-        Our Signature Packages combine our finest treatments into one complete ritual. For a more personalised visit, our Full Treatment Menu covers massages, facials, nail care, and waxing — each thoughtfully crafted for your comfort and wellbeing.
+        We have structured the treatment experience in two parts: signature packages for guests who want a complete ritual, and a full treatment menu for massages, facials, waxing, and nail care.
       </p>
     </div>
 
     <div class="featured-packages">
       <article class="package-card reveal">
-        <img src="images/celestialradiencepackage.jpg" alt="Celestial Radiance package treatment" class="package-image" />
+        <img src="celestialradiencepackage.jpg" alt="Celestial Radiance package treatment" class="package-image" />
         <div class="package-content">
           <span class="package-label">Featured Package</span>
           <h3 class="package-name">Celestial Radiance</h3>
@@ -1022,14 +1193,14 @@
             <span class="package-chip">Luxury Care</span>
           </div>
           <div class="package-actions">
-            <a href="tel:+250787305898" class="btn-primary">Book Package</a>
+            <a href="#book" class="btn-primary js-book-trigger" data-treatment="Celestial Radiance Package">Book Package</a>
             <a href="#contact" class="btn-secondary">Ask About It</a>
           </div>
         </div>
       </article>
 
       <article class="package-card reveal reveal-delay-1">
-        <img src="images/healingzenpackage.jpg" alt="Healing Zen package with hot stone treatment" class="package-image" />
+        <img src="healingzenpackage.jpg" alt="Healing Zen package with hot stone treatment" class="package-image" />
         <div class="package-content">
           <span class="package-label">Featured Package</span>
           <h3 class="package-name">Healing Zen</h3>
@@ -1039,14 +1210,14 @@
             <span class="package-chip">Deep Relaxation</span>
           </div>
           <div class="package-actions">
-            <a href="tel:+250787305898" class="btn-primary">Book Package</a>
+            <a href="#book" class="btn-primary js-book-trigger" data-treatment="Healing Zen Package">Book Package</a>
             <a href="#contact" class="btn-secondary">Ask About It</a>
           </div>
         </div>
       </article>
 
       <article class="package-card reveal reveal-delay-2">
-        <img src="images/reviveritualpackage.jpg" alt="Revive Ritual package massage" class="package-image" />
+        <img src="reviveritualpackage.jpg" alt="Revive Ritual package massage" class="package-image" />
         <div class="package-content">
           <span class="package-label">Featured Package</span>
           <h3 class="package-name">Revive Ritual</h3>
@@ -1056,7 +1227,7 @@
             <span class="package-chip">Muscle Relief</span>
           </div>
           <div class="package-actions">
-            <a href="tel:+250787305898" class="btn-primary">Book Package</a>
+            <a href="#book" class="btn-primary js-book-trigger" data-treatment="Revive Ritual Package">Book Package</a>
             <a href="#contact" class="btn-secondary">Ask About It</a>
           </div>
         </div>
@@ -1066,7 +1237,7 @@
     <div class="menu-header reveal">
       <div class="menu-title-wrap">
         <div class="section-eyebrow">Treatment Menu</div>
-        <p>Browse our services by category — each listing includes treatment duration and pricing to help you plan your visit before making a booking inquiry.</p>
+        <p>Our menu is organized by category so visitors can quickly scan services, durations, and prices before making a booking inquiry.</p>
       </div>
       <div class="menu-pill">Prices in RWF</div>
     </div>
@@ -1074,6 +1245,7 @@
     <div class="treatment-menu">
       <article class="menu-card reveal">
         <div class="menu-card-header">
+          <span class="menu-icon">🧖🏽</span>
           <div>
             <h3 class="menu-card-title">Maka &amp; Yura Massages</h3>
             <div class="menu-card-subtitle">Body rituals &amp; therapeutic touch</div>
@@ -1091,10 +1263,14 @@
           <li><div><span class="service-item-name">Pregnant Massage</span><span class="service-item-meta">60 min</span></div><div class="service-item-price">50,000</div></li>
           <li><div><span class="service-item-name">Scrub Massage</span><span class="service-item-meta">60 min</span></div><div class="service-item-price">50,000</div></li>
         </ul>
+        <div class="menu-card-book">
+          <a href="#book" class="btn-secondary js-book-trigger" data-treatment="Massage Treatment">Book a Massage</a>
+        </div>
       </article>
 
       <article class="menu-card reveal reveal-delay-1">
         <div class="menu-card-header">
+          <span class="menu-icon">✨</span>
           <div>
             <h3 class="menu-card-title">Clarins Face Treatments</h3>
             <div class="menu-card-subtitle">Tri-Active &amp; men&apos;s skincare</div>
@@ -1110,10 +1286,14 @@
           <li><div><span class="service-item-name">Clarins Emulsion</span><span class="service-item-meta">Men by Clarins · 60 min</span></div><div class="service-item-price">45,000</div></li>
           <li><div><span class="service-item-name">Clarins Anti-Aging</span><span class="service-item-meta">Men by Clarins · 60 min</span></div><div class="service-item-price">45,000</div></li>
         </ul>
+        <div class="menu-card-book">
+          <a href="#book" class="btn-secondary js-book-trigger" data-treatment="Clarins Facial Treatment">Book a Facial</a>
+        </div>
       </article>
 
       <article class="menu-card reveal reveal-delay-2">
         <div class="menu-card-header">
+          <span class="menu-icon">💅</span>
           <div>
             <h3 class="menu-card-title">Les Essentiels Maka &amp; Yura</h3>
             <div class="menu-card-subtitle">Nails, polish &amp; finishing care</div>
@@ -1138,10 +1318,14 @@
           <li><div><span class="service-item-name">Polygel Nails</span></div><div class="service-item-price">40,000</div></li>
           <li><div><span class="service-item-name">Polygel Retouch</span></div><div class="service-item-price">25,000</div></li>
         </ul>
+        <div class="menu-card-book">
+          <a href="#book" class="btn-secondary js-book-trigger" data-treatment="Nail Care Treatment">Book Nail Care</a>
+        </div>
       </article>
 
       <article class="menu-card reveal reveal-delay-3">
         <div class="menu-card-header">
+          <span class="menu-icon">🌸</span>
           <div>
             <h3 class="menu-card-title">Maka &amp; Yura Waxing</h3>
             <div class="menu-card-subtitle">Smooth finish &amp; grooming care</div>
@@ -1163,6 +1347,9 @@
           <li><div><span class="service-item-name">Full Buttocks</span></div><div class="service-item-price">20,000</div></li>
           <li><div><span class="service-item-name">Cheeks</span></div><div class="service-item-price">15,000</div></li>
         </ul>
+        <div class="menu-card-book">
+          <a href="#book" class="btn-secondary js-book-trigger" data-treatment="Waxing Treatment">Book Waxing</a>
+        </div>
       </article>
     </div>
   </section>
@@ -1177,7 +1364,7 @@
     </div>
     <div class="gallery-grid">
       <div class="gallery-item reveal">
-        <img src="images/celestialradience.jpg" alt="Celestial Radiance package" class="gallery-photo" />
+        <img src="celestialradiencepackage.jpg" alt="Celestial Radiance package" class="gallery-photo" />
         <div class="gallery-overlay"></div>
         <div class="gallery-caption-wrap">
           <div class="gallery-caption-label">Featured Package</div>
@@ -1186,7 +1373,7 @@
         </div>
       </div>
       <div class="gallery-item reveal reveal-delay-1">
-        <img src="images/healingzen.jpg" alt="Healing Zen package" class="gallery-photo" />
+        <img src="healingzenpackage.jpg" alt="Healing Zen package" class="gallery-photo" />
         <div class="gallery-overlay"></div>
         <div class="gallery-caption-wrap">
           <div class="gallery-caption-label">Featured Package</div>
@@ -1195,7 +1382,7 @@
         </div>
       </div>
       <div class="gallery-item reveal reveal-delay-2">
-        <img src="images/reviveritual.jpg" alt="Revive Ritual package" class="gallery-photo" />
+        <img src="reviveritualpackage.jpg" alt="Revive Ritual package" class="gallery-photo" />
         <div class="gallery-overlay"></div>
         <div class="gallery-caption-wrap">
           <div class="gallery-caption-label">Featured Package</div>
@@ -1272,15 +1459,92 @@
     <div class="booking-bg"></div>
     <div class="section-eyebrow booking-eyebrow reveal">Reserve Your Time</div>
     <h2 class="section-title reveal reveal-delay-1">
-      Begin your journey<br>to <em>inner peace</em>
+      Booking should feel as calming as the <em>treatment itself</em>
     </h2>
     <p class="booking-subtitle reveal reveal-delay-2">
-      Prices from RWF 25,000. Gift vouchers available. Walk-ins welcome — advance booking recommended for weekend visits.
+      Choose your treatment, prepare your request, and contact the spa through the channel that feels easiest for you.
     </p>
+
+    <div class="booking-steps reveal reveal-delay-2">
+      <div class="booking-step">
+        <span class="booking-step-num">01</span>
+        <h3>Choose your ritual</h3>
+        <p>Start with a featured package or select a treatment category from the menu above.</p>
+      </div>
+      <div class="booking-step">
+        <span class="booking-step-num">02</span>
+        <h3>Prepare your request</h3>
+        <p>Use the quick planner below to gather the treatment, date, time, and any personal notes.</p>
+      </div>
+      <div class="booking-step">
+        <span class="booking-step-num">03</span>
+        <h3>Confirm with the spa</h3>
+        <p>Call directly for the fastest booking, or copy your request and send it through Instagram or Facebook.</p>
+      </div>
+    </div>
+
     <div class="booking-actions reveal reveal-delay-3">
       <a href="tel:+250787305898" class="btn-primary">Call to Book: +250 787 305 898</a>
-      <a href="https://www.instagram.com/makayuraspa/" target="_blank" class="btn-outline">Follow on Instagram</a>
+      <a href="https://www.instagram.com/makayuraspa/" target="_blank" class="btn-outline">Message on Instagram</a>
+      <a href="https://www.facebook.com/MakaYuraSpa/" target="_blank" class="btn-outline">Message on Facebook</a>
     </div>
+
+    <div class="booking-planner reveal reveal-delay-4">
+      <div class="booking-planner-header">
+        <div>
+          <div class="booking-planner-title">Quick booking planner</div>
+          <p class="booking-planner-note">This does not submit automatically — it helps visitors prepare a clear request they can copy and send to the spa.</p>
+        </div>
+        <div class="menu-pill">Fast, clear, easy</div>
+      </div>
+
+      <form class="booking-form" id="booking-form">
+        <div class="field">
+          <label for="booking-treatment">Treatment or package</label>
+          <input id="booking-treatment" name="treatment" type="text" placeholder="e.g. Healing Zen Package" />
+        </div>
+        <div class="field">
+          <label for="booking-guest">Name</label>
+          <input id="booking-guest" name="guest" type="text" placeholder="Your name" />
+        </div>
+        <div class="field">
+          <label for="booking-day">Preferred day</label>
+          <input id="booking-day" name="day" type="text" placeholder="e.g. Saturday afternoon" />
+        </div>
+        <div class="field">
+          <label for="booking-time">Preferred time</label>
+          <input id="booking-time" name="time" type="text" placeholder="e.g. 3:00 pm" />
+        </div>
+        <div class="field">
+          <label for="booking-phone">Phone number</label>
+          <input id="booking-phone" name="phone" type="text" placeholder="Best number for confirmation" />
+        </div>
+        <div class="field">
+          <label for="booking-channel">Preferred contact channel</label>
+          <select id="booking-channel" name="channel">
+            <option value="Call">Call</option>
+            <option value="Instagram">Instagram</option>
+            <option value="Facebook">Facebook</option>
+          </select>
+        </div>
+        <div class="field full">
+          <label for="booking-note">Notes</label>
+          <textarea id="booking-note" name="note" placeholder="Any details, preferred therapist, special request, or questions"></textarea>
+        </div>
+      </form>
+
+      <div class="planner-output">
+        <div class="planner-output-title">Ready-to-send booking request</div>
+        <div class="planner-message" id="planner-message"></div>
+        <div class="planner-actions">
+          <button type="button" class="btn-primary" id="copy-booking-message">Copy Request</button>
+          <a href="tel:+250787305898" class="btn-secondary">Call to Confirm</a>
+          <a href="https://www.instagram.com/makayuraspa/" target="_blank" class="btn-secondary">Open Instagram</a>
+        </div>
+        <div class="planner-helper">Tip: after copying, paste the request into Instagram or Facebook, or keep it beside you when you call.</div>
+      </div>
+    </div>
+
     <div class="booking-info reveal reveal-delay-4">
       <div class="booking-info-item">
         <span class="booking-info-icon">📍</span>
@@ -1293,9 +1557,9 @@
         <span class="booking-info-value">+250 787 305 898</span>
       </div>
       <div class="booking-info-item">
-        <span class="booking-info-icon">💰</span>
-        <span class="booking-info-label">Starting From</span>
-        <span class="booking-info-value">RWF 25,000</span>
+        <span class="booking-info-icon">🕒</span>
+        <span class="booking-info-label">Plan Ahead</span>
+        <span class="booking-info-value">Weekend slots book faster<br>Advance booking recommended</span>
       </div>
     </div>
   </section>
@@ -1332,6 +1596,8 @@
     </div>
   </div>
 
+  <a href="#book" class="floating-book">✦ Book Now</a>
+
   <!-- ─── FOOTER ─────────────────────────────────────────────── -->
   <footer>
     <div class="footer-logo">Maka <span>& Yura</span></div>
@@ -1366,9 +1632,78 @@
     document.querySelectorAll('a[href^="#"]').forEach(a => {
       a.addEventListener('click', e => {
         const target = document.querySelector(a.getAttribute('href'));
-        if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth' }); }
+        if (target) {
+          e.preventDefault();
+          target.scrollIntoView({ behavior: 'smooth' });
+        }
       });
     });
+
+    // Booking planner
+    const bookingTreatment = document.getElementById('booking-treatment');
+    const bookingGuest = document.getElementById('booking-guest');
+    const bookingDay = document.getElementById('booking-day');
+    const bookingTime = document.getElementById('booking-time');
+    const bookingPhone = document.getElementById('booking-phone');
+    const bookingChannel = document.getElementById('booking-channel');
+    const bookingNote = document.getElementById('booking-note');
+    const plannerMessage = document.getElementById('planner-message');
+    const copyButton = document.getElementById('copy-booking-message');
+
+    function updatePlannerMessage() {
+      const treatment = bookingTreatment.value.trim() || 'a treatment';
+      const guest = bookingGuest.value.trim() || 'a guest';
+      const day = bookingDay.value.trim() || 'a preferred day';
+      const time = bookingTime.value.trim() || 'a preferred time';
+      const phone = bookingPhone.value.trim() || 'my phone number';
+      const channel = bookingChannel.value.trim() || 'Call';
+      const note = bookingNote.value.trim();
+
+      let message = `Hello Maka & Yura, I would like to book ${treatment}.
+
+`;
+      message += `Name: ${guest}
+`;
+      message += `Preferred day: ${day}
+`;
+      message += `Preferred time: ${time}
+`;
+      message += `Best contact: ${phone}
+`;
+      message += `Preferred confirmation channel: ${channel}`;
+      if (note) {
+        message += `
+Notes: ${note}`;
+      }
+      plannerMessage.textContent = message;
+    }
+
+    [bookingTreatment, bookingGuest, bookingDay, bookingTime, bookingPhone, bookingChannel, bookingNote].forEach((field) => {
+      field.addEventListener('input', updatePlannerMessage);
+      field.addEventListener('change', updatePlannerMessage);
+    });
+
+    document.querySelectorAll('.js-book-trigger').forEach((trigger) => {
+      trigger.addEventListener('click', () => {
+        const treatment = trigger.dataset.treatment;
+        if (treatment && bookingTreatment) {
+          bookingTreatment.value = treatment;
+          updatePlannerMessage();
+        }
+      });
+    });
+
+    copyButton.addEventListener('click', async () => {
+      try {
+        await navigator.clipboard.writeText(plannerMessage.textContent);
+        copyButton.textContent = 'Copied';
+        setTimeout(() => { copyButton.textContent = 'Copy Request'; }, 1500);
+      } catch (error) {
+        copyButton.textContent = 'Copy Manually';
+      }
+    });
+
+    updatePlannerMessage();
   </script>
 </body>
 </html>
