@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -640,7 +641,19 @@
       footer { flex-direction: column; gap: 1.5rem; text-align: center; }
       .hero-actions { justify-content: center; }
     }
-  </style>
+  
+.map-section {
+  background: var(--warm-white);
+  padding: 6rem 4rem;
+}
+.map-wrap {
+  width: 100%;
+  overflow: hidden;
+  border: 1px solid rgba(111,90,103,0.12);
+  box-shadow: 0 18px 40px rgba(74,55,66,0.06);
+}
+
+</style>
 </head>
 <body>
   <nav id="navbar">
@@ -1017,7 +1030,35 @@
     </div>
   </section>
 
-  <div class="contact-bar" id="contact">
+  
+<section class="map-section" id="map">
+  <div class="section-eyebrow">Find Us</div>
+  <h2 class="section-title">Visit <em>Maka &amp; Yura</em></h2>
+  <p class="services-intro" style="max-width:700px; margin-bottom:2rem;">
+    Find us in Nyarutarama, Kigali. Use the map below to get directions directly from Google Maps.
+  </p>
+
+  <div class="map-wrap">
+    <iframe
+      src="https://www.google.com/maps?q=KG%20280%20St%2023,%20Nyarutarama,%20Kigali&output=embed"
+      width="100%"
+      height="420"
+      style="border:0;"
+      allowfullscreen=""
+      loading="lazy">
+    </iframe>
+  </div>
+
+  <div style="margin-top:1.5rem;">
+    <a href="https://www.google.com/maps/search/?api=1&query=KG+280+St+23,+Nyarutarama,+Kigali"
+       target="_blank"
+       class="btn-primary">
+      Open in Google Maps
+    </a>
+  </div>
+</section>
+
+<div class="contact-bar" id="contact">
     <div class="contact-cell">
       <div class="contact-cell-title">Find Us</div>
       <div class="contact-value">KG 280 St 23<br>Nyarutarama<br>Kigali, Rwanda</div>
