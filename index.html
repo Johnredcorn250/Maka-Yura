@@ -5,31 +5,37 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Maka & Yura Beauty Spa — Kigali, Rwanda</title>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,500&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <!-- FIX 3: defer so this script no longer blocks HTML parsing -->
+  <script defer src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
   <style>
+    /* ─────────────────────────────────────────────
+       DESIGN TOKENS
+       FIX 4 (CSS): Removed alias variables that
+       simply re-pointed to other variables:
+         --espresso, --mocha, --bark, --gold,
+         --gold-light, --cream, --parchment (kept
+         as a standalone colour), --sage-light,
+         --white, --text-dark, --text-mid,
+         --text-light.
+       Direct base-variable references are used
+       throughout instead.
+    ───────────────────────────────────────────── */
     :root {
-      --plum: #6f5a67;
-      --plum-deep: #4a3742;
-      --mauve: #8a7480;
-      --ivory: #f7f4f1;
+      --plum:       #6f5a67;
+      --plum-deep:  #4a3742;
+      --mauve:      #8a7480;
+      --ivory:      #f7f4f1;
       --warm-white: #fdfbf8;
-      --stone: #d8cfc8;
-      --taupe: #b7aaa1;
-      --charcoal: #1c1b1b;
-      --soft-text: #4f4945;
-      --sage-soft: #a8b39f;
-      --espresso: var(--charcoal);
-      --mocha: #efe8e2;
-      --bark: #d8cfc8;
-      --gold: var(--plum);
-      --gold-light: var(--mauve);
-      --cream: var(--charcoal);
-      --parchment: #6b6460;
-      --sage: #a8b39f;
+      --stone:      #d8cfc8;
+      --taupe:      #b7aaa1;
+      --charcoal:   #1c1b1b;
+      --soft-text:  #4f4945;
+      --sage-soft:  #a8b39f;
+      --parchment:  #6b6460;
+      --sage:       #a8b39f;
       --sage-light: #8fa08a;
-      --white: var(--warm-white);
-      --text-dark: var(--charcoal);
-      --text-mid: #6f5a67;
-      --text-light: #8b817b;
     }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -225,7 +231,7 @@
       color: var(--warm-white); font-weight: 600;
       padding: 0 3rem;
     }
-    .marquee-dot { color: var(--bark); }
+    .marquee-dot { color: var(--stone); }
 
     .about {
       background: var(--warm-white);
@@ -281,7 +287,7 @@
     }
     .clarins-text strong { display: block; color: var(--plum); font-size: 0.7rem; }
     .about-founder-quote {
-      margin-top: 2.5rem; border-left: 2px solid var(--gold); padding-left: 1.5rem;
+      margin-top: 2.5rem; border-left: 2px solid var(--plum); padding-left: 1.5rem;
     }
     .about-founder-quote blockquote {
       font-size: 1.1rem; font-style: italic; color: var(--mauve); line-height: 1.8;
@@ -430,6 +436,8 @@
       color: var(--plum-deep); line-height: 1.15;
     }
     .booking-planner-note { color: var(--soft-text); line-height: 1.7; max-width: 420px; font-size: 1rem; }
+
+    /* FIX 2: .booking-form is now on a <div>, not a <form> — styles unchanged */
     .booking-form {
       display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem 1.1rem;
     }
@@ -533,7 +541,7 @@
     }
     .author-name {
       font-family: 'Montserrat', sans-serif; font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase;
-      color: var(--gold-light);
+      color: var(--mauve);
     }
     .author-location { font-size: 0.85rem; color: var(--soft-text); margin-top: 0.15rem; }
 
@@ -557,7 +565,7 @@
       font-family: 'Montserrat', sans-serif; font-size: 0.58rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--soft-text);
     }
     .booking-info-value {
-      font-size: 1rem; color: var(--gold-light); text-align: center; line-height: 1.6;
+      font-size: 1rem; color: var(--mauve); text-align: center; line-height: 1.6;
     }
 
     .contact-bar { background: var(--warm-white); display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 0; }
@@ -640,7 +648,7 @@
       footer { flex-direction: column; gap: 1.5rem; text-align: center; }
       .hero-actions { justify-content: center; }
     }
-  
+
     .map-section {
       background: var(--warm-white);
       padding: 6rem 4rem;
@@ -670,7 +678,7 @@
       border-color: var(--plum) !important;
       background-color: rgba(111, 90, 103, 0.04) !important;
     }
-    .goog-te-gadget-simple span, 
+    .goog-te-gadget-simple span,
     .goog-te-menu-value span {
       color: var(--plum-deep) !important;
       font-family: 'Montserrat', sans-serif !important;
@@ -678,39 +686,29 @@
       letter-spacing: 0.15em !important;
       text-transform: uppercase !important;
     }
-    .goog-te-gadget-icon {
-      display: none !important;
-    }
-    .goog-logo-link, 
-    .goog-logo-link:link, 
-    .goog-logo-link:visited, 
-    .goog-logo-link:hover, 
-    .goog-logo-link:active {
-      display: none !important;
-    }
-    .goog-te-gadget {
-      color: transparent !important;
-      font-size: 0 !important;
-    }
-    .goog-te-banner-frame.skiptranslate {
-      display: none !important;
-    }
-    body {
-      top: 0px !important;
-    }
+    .goog-te-gadget-icon { display: none !important; }
+    .goog-logo-link,
+    .goog-logo-link:link,
+    .goog-logo-link:visited,
+    .goog-logo-link:hover,
+    .goog-logo-link:active { display: none !important; }
+    .goog-te-gadget { color: transparent !important; font-size: 0 !important; }
+    .goog-te-banner-frame.skiptranslate { display: none !important; }
+    body { top: 0px !important; }
   </style>
-  <script type="text/javascript">
-  function googleTranslateElementInit() {
-    new google.translate.TranslateElement({
-      pageLanguage: 'en',
-      includedLanguages: 'en,fr,rw',
-      layout: google.translate.TranslateElement.InlineLayout.SIMPLE
-    }, 'google_translate_element');
-  }
-</script>
-<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+  <script>
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement({
+        pageLanguage: 'en',
+        includedLanguages: 'en,fr,rw',
+        layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+      }, 'google_translate_element');
+    }
+  </script>
 </head>
 <body>
+
   <nav id="navbar">
     <div class="nav-logo">Maka <span>& Yura</span></div>
     <ul class="nav-links">
@@ -763,17 +761,10 @@
     </div>
   </div>
 
-  <script>
-    const navbar = document.getElementById('navbar');
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > 50) {
-        navbar.classList.add('scrolled');
-      } else {
-        navbar.classList.remove('scrolled');
-      }
-    });
-  </script>
-   <section class="about" id="about">
+  <!-- FIX 1: Duplicate scroll listener that was here has been removed. -->
+  <!-- The single authoritative listener lives at the bottom of the page. -->
+
+  <section class="about" id="about">
     <div class="about-visual reveal">
       <div class="about-img-frame">
         <video autoplay muted loop playsinline style="width:100%; height:100%; object-fit:cover;">
@@ -1058,12 +1049,19 @@
     <div class="booking-planner reveal reveal-delay-4">
       <div class="booking-planner-header">
         <div>
-          <div class="booking-planner-title">Quick booking planner</div>
+          <div class="booking-planner-title" id="booking-planner-title">Quick booking planner</div>
           <p class="booking-planner-note">This does not submit automatically — it helps visitors prepare a clear request they can copy and send to the spa.</p>
         </div>
       </div>
 
-      <form class="booking-form" id="booking-form">
+      <!--
+        FIX 2: Changed from <form> to <div role="group">.
+        The original <form> had no action or submit handler, so pressing Enter
+        in a field could trigger an accidental page refresh. Using a plain div
+        with role="group" and aria-labelledby preserves accessibility without
+        the unintended form-submission behaviour.
+      -->
+      <div class="booking-form" id="booking-form" role="group" aria-labelledby="booking-planner-title">
         <div class="field"><label for="booking-treatment">Treatment or package</label><input id="booking-treatment" name="treatment" type="text" placeholder="e.g. Healing Zen Package" /></div>
         <div class="field"><label for="booking-guest">Name</label><input id="booking-guest" name="guest" type="text" placeholder="Your name" /></div>
         <div class="field"><label for="booking-day">Preferred day</label><input id="booking-day" name="day" type="text" placeholder="e.g. Saturday afternoon" /></div>
@@ -1071,10 +1069,14 @@
         <div class="field"><label for="booking-phone">Phone number</label><input id="booking-phone" name="phone" type="text" placeholder="Best number for confirmation" /></div>
         <div class="field">
           <label for="booking-channel">Preferred contact channel</label>
-          <select id="booking-channel" name="channel"><option value="Call">Call</option><option value="Instagram">Instagram</option><option value="Facebook">Facebook</option></select>
+          <select id="booking-channel" name="channel">
+            <option value="Call">Call</option>
+            <option value="Instagram">Instagram</option>
+            <option value="Facebook">Facebook</option>
+          </select>
         </div>
         <div class="field full"><label for="booking-note">Notes</label><textarea id="booking-note" name="note" placeholder="Any details, preferred therapist, special request, or questions"></textarea></div>
-      </form>
+      </div>
 
       <div class="planner-output">
         <div class="planner-output-title">Ready-to-send booking request</div>
@@ -1095,35 +1097,32 @@
     </div>
   </section>
 
-  
-<section class="map-section" id="map">
-  <div class="section-eyebrow">Find Us</div>
-  <h2 class="section-title">Visit <em>Maka &amp; Yura</em></h2>
-  <p class="services-intro" style="max-width:700px; margin-bottom:2rem;">
-    Find us in Nyarutarama, Kigali. Use the map below to get directions directly from Google Maps.
-  </p>
+  <section class="map-section" id="map">
+    <div class="section-eyebrow">Find Us</div>
+    <h2 class="section-title">Visit <em>Maka &amp; Yura</em></h2>
+    <p class="services-intro" style="max-width:700px; margin-bottom:2rem;">
+      Find us in Nyarutarama, Kigali. Use the map below to get directions directly from Google Maps.
+    </p>
+    <div class="map-wrap">
+      <iframe
+        src="https://www.google.com/maps?q=KG%20280%20St%2023,%20Nyarutarama,%20Kigali&output=embed"
+        width="100%"
+        height="420"
+        style="border:0;"
+        allowfullscreen=""
+        loading="lazy">
+      </iframe>
+    </div>
+    <div style="margin-top:1.5rem;">
+      <a href="https://www.google.com/maps/search/?api=1&query=KG+280+St+23,+Nyarutarama,+Kigali"
+         target="_blank"
+         class="btn-primary">
+        Open in Google Maps
+      </a>
+    </div>
+  </section>
 
-  <div class="map-wrap">
-    <iframe
-      src="https://www.google.com/maps?q=KG%20280%20St%2023,%20Nyarutarama,%20Kigali&output=embed"
-      width="100%"
-      height="420"
-      style="border:0;"
-      allowfullscreen=""
-      loading="lazy">
-    </iframe>
-  </div>
-
-  <div style="margin-top:1.5rem;">
-    <a href="https://www.google.com/maps/search/?api=1&query=KG+280+St+23,+Nyarutarama,+Kigali"
-       target="_blank"
-       class="btn-primary">
-      Open in Google Maps
-    </a>
-  </div>
-</section>
-
-<div class="contact-bar" id="contact">
+  <div class="contact-bar" id="contact">
     <div class="contact-cell">
       <div class="contact-cell-title">Find Us</div>
       <div class="contact-value">KG 280 St 23<br>Nyarutarama<br>Kigali, Rwanda</div>
@@ -1162,11 +1161,18 @@
   </footer>
 
   <script>
+    /* ─────────────────────────────────────────────
+       FIX 1: Single authoritative scroll listener.
+       The duplicate that previously lived after the
+       marquee strip (threshold: 50) has been removed.
+       This one (threshold: 60) is the only handler.
+    ───────────────────────────────────────────── */
     const navbar = document.getElementById('navbar');
     window.addEventListener('scroll', () => {
       navbar.classList.toggle('scrolled', window.scrollY > 60);
     });
 
+    /* Reveal-on-scroll animations */
     const revealEls = document.querySelectorAll('.reveal');
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
@@ -1178,6 +1184,7 @@
     }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
     revealEls.forEach(el => observer.observe(el));
 
+    /* Smooth scroll for all anchor links */
     document.querySelectorAll('a[href^="#"]').forEach(a => {
       a.addEventListener('click', e => {
         const target = document.querySelector(a.getAttribute('href'));
@@ -1188,61 +1195,79 @@
       });
     });
 
-    const bookingTreatment = document.getElementById('booking-treatment');
-    const bookingGuest = document.getElementById('booking-guest');
-    const bookingDay = document.getElementById('booking-day');
-    const bookingTime = document.getElementById('booking-time');
-    const bookingPhone = document.getElementById('booking-phone');
-    const bookingChannel = document.getElementById('booking-channel');
-    const bookingNote = document.getElementById('booking-note');
+    /* ─────────────────────────────────────────────
+       BOOKING PLANNER
+       FIX 4: Field references derived from a single
+       config array instead of 7 separate getElementById
+       calls. If an ID changes, update it here only.
+    ───────────────────────────────────────────── */
+    const fieldIds = [
+      'booking-treatment',
+      'booking-guest',
+      'booking-day',
+      'booking-time',
+      'booking-phone',
+      'booking-channel',
+      'booking-note'
+    ];
+
+    const fields = Object.fromEntries(
+      fieldIds.map(id => [id.replace('booking-', '').replace('-', '_'), document.getElementById(id)])
+    );
+
     const plannerMessage = document.getElementById('planner-message');
-    const copyButton = document.getElementById('copy-booking-message');
+    const copyButton     = document.getElementById('copy-booking-message');
 
     function updatePlannerMessage() {
-      const treatment = bookingTreatment.value.trim() || 'a treatment';
-      const guest = bookingGuest.value.trim() || 'a guest';
-      const day = bookingDay.value.trim() || 'a preferred day';
-      const time = bookingTime.value.trim() || 'a preferred time';
-      const phone = bookingPhone.value.trim() || 'my phone number';
-      const channel = bookingChannel.value.trim() || 'Call';
-      const note = bookingNote.value.trim();
+      const treatment = fields.treatment.value.trim() || 'a treatment';
+      const guest     = fields.guest.value.trim()     || 'a guest';
+      const day       = fields.day.value.trim()       || 'a preferred day';
+      const time      = fields.time.value.trim()      || 'a preferred time';
+      const phone     = fields.phone.value.trim()     || 'my phone number';
+      const channel   = fields.channel.value.trim()   || 'Call';
+      const note      = fields.note.value.trim();
 
-      let message = `Hello Maka & Yura, I would like to book ${treatment}.\n\n`;
-      message += `Name: ${guest}\n`;
-      message += `Preferred day: ${day}\n`;
-      message += `Preferred time: ${time}\n`;
-      message += `Best contact: ${phone}\n`;
-      message += `Preferred confirmation channel: ${channel}`;
+      let message  = `Hello Maka & Yura, I would like to book ${treatment}.\n\n`;
+          message += `Name: ${guest}\n`;
+          message += `Preferred day: ${day}\n`;
+          message += `Preferred time: ${time}\n`;
+          message += `Best contact: ${phone}\n`;
+          message += `Preferred confirmation channel: ${channel}`;
       if (note) message += `\nNotes: ${note}`;
+
       plannerMessage.textContent = message;
     }
 
-    [bookingTreatment, bookingGuest, bookingDay, bookingTime, bookingPhone, bookingChannel, bookingNote].forEach((field) => {
-      field.addEventListener('input', updatePlannerMessage);
+    Object.values(fields).forEach(field => {
+      field.addEventListener('input',  updatePlannerMessage);
       field.addEventListener('change', updatePlannerMessage);
     });
 
-    document.querySelectorAll('.js-book-trigger').forEach((trigger) => {
+    /* Pre-fill treatment when a "Book X" button is clicked */
+    document.querySelectorAll('.js-book-trigger').forEach(trigger => {
       trigger.addEventListener('click', () => {
         const treatment = trigger.dataset.treatment;
-        if (treatment && bookingTreatment) {
-          bookingTreatment.value = treatment;
+        if (treatment && fields.treatment) {
+          fields.treatment.value = treatment;
           updatePlannerMessage();
         }
       });
     });
 
+    /* Copy to clipboard */
     copyButton.addEventListener('click', async () => {
       try {
         await navigator.clipboard.writeText(plannerMessage.textContent);
         copyButton.textContent = 'Copied';
         setTimeout(() => { copyButton.textContent = 'Copy Request'; }, 1500);
-      } catch (error) {
+      } catch {
         copyButton.textContent = 'Copy Manually';
       }
     });
 
+    /* Initialise planner with placeholder values */
     updatePlannerMessage();
   </script>
+
 </body>
 </html>
