@@ -3,35 +3,24 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Maka & Yura Products — Perfumes & Clarins Retail</title>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
-  <!--
-    FIX 3: Google Translate script deferred so it no longer blocks HTML parsing.
-    type="text/javascript" removed (redundant since HTML5).
-  -->
+  <title>Maka &amp; Yura Products - Perfumes &amp; Clarins Retail</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&amp;family=Montserrat:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
   <script defer src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
   <style>
-    /* ─────────────────────────────────────────────
-       DESIGN TOKENS
-       FIX 4 (CSS): Removed alias variables that
-       simply re-pointed to other variables.
-       All downstream references use base variables
-       directly, matching the pattern in index.html.
-    ───────────────────────────────────────────── */
     :root {
-      --plum:      #6f5a67;
+      --plum: #6f5a67;
       --plum-deep: #4a3742;
-      --rose:      #a67886;
-      --ivory:     #f8f4f1;
-      --warm:      #fdfbf8;
-      --stone:     #ddd3cc;
-      --taupe:     #b8aaa1;
-      --charcoal:  #1f1d1d;
-      --soft:      #5a5450;
-      --line:      rgba(74,55,66,.12);
-      --card:      #fffdfa;
+      --rose: #a67886;
+      --ivory: #f8f4f1;
+      --warm: #fdfbf8;
+      --stone: #ddd3cc;
+      --taupe: #b8aaa1;
+      --charcoal: #1f1d1d;
+      --soft: #5a5450;
+      --line: rgba(74,55,66,.12);
+      --card: #fffdfa;
+      --success: #426c55;
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -43,50 +32,114 @@
       line-height: 1.6;
       -webkit-font-smoothing: antialiased;
       text-rendering: optimizeLegibility;
+      top: 0 !important;
     }
     img { display: block; max-width: 100%; }
     a { text-decoration: none; color: inherit; }
+    button { font: inherit; }
     .container { width: min(1180px, calc(100% - 2.4rem)); margin: 0 auto; }
 
-    /* ── Navigation ── */
     .nav {
-      position: sticky; top: 0; z-index: 50;
-      background: rgba(253,251,248,.92);
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(253,251,248,.94);
       backdrop-filter: blur(12px);
       border-bottom: 1px solid var(--line);
     }
     .nav-inner {
-      display: flex; justify-content: space-between; align-items: center;
-      padding: 1rem 0; gap: 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 0;
+      gap: 1rem;
     }
-    .brand { font-family: 'Playfair Display', serif; font-size: 1.45rem; color: var(--plum-deep); font-weight: 700; }
+    .brand {
+      display: inline-flex;
+      align-items: baseline;
+      gap: .25rem;
+      font-family: 'Playfair Display', serif;
+      font-size: 1.45rem;
+      color: var(--plum-deep);
+      font-weight: 700;
+    }
     .brand span { font-style: italic; color: var(--plum); }
     .nav-links { display: flex; gap: 1.25rem; align-items: center; flex-wrap: wrap; }
-    .nav-links a { font-size: .78rem; letter-spacing: .14em; text-transform: uppercase; color: var(--soft); }
-    .nav-links a:hover { color: var(--plum-deep); }
+    .nav-links a {
+      font-size: .78rem;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--soft);
+    }
+    .nav-links a:hover,
+    .nav-links a:focus-visible { color: var(--plum-deep); }
 
-    /* ── Buttons ── */
     .btn {
-      display: inline-flex; align-items: center; justify-content: center; gap: .55rem;
-      padding: .95rem 1.35rem; border-radius: 999px; font-weight: 600;
-      font-size: .82rem; letter-spacing: .08em; text-transform: uppercase;
-      transition: .25s ease; cursor: pointer; border: 1px solid transparent;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: .55rem;
+      min-height: 44px;
+      padding: .85rem 1.25rem;
+      border-radius: 999px;
+      font-weight: 600;
+      font-size: .8rem;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      transition: .25s ease;
+      cursor: pointer;
+      border: 1px solid transparent;
     }
     .btn-primary { background: var(--plum-deep); color: #fff; }
-    .btn-primary:hover { background: var(--plum); }
-    .btn-outline { border-color: var(--plum-deep); color: var(--plum-deep); background: transparent; }
-    .btn-outline:hover { background: var(--plum-deep); color: #fff; }
+    .btn-primary:hover,
+    .btn-primary:focus-visible { background: var(--plum); }
+    .btn-outline {
+      border-color: var(--plum-deep);
+      color: var(--plum-deep);
+      background: transparent;
+    }
+    .btn-outline:hover,
+    .btn-outline:focus-visible { background: var(--plum-deep); color: #fff; }
 
-    /* ── Hero ── */
-    .hero { padding: 5.5rem 0 4rem; background: linear-gradient(180deg, var(--warm), #f4eeea 100%); }
-    .eyebrow { font-size: .72rem; letter-spacing: .26em; text-transform: uppercase; color: var(--rose); margin-bottom: 1rem; }
-    h1, h2, h3 { font-family: 'Playfair Display', serif; line-height: 1.1; color: var(--plum-deep); }
-    h1 { font-size: clamp(2.8rem, 7vw, 5.3rem); max-width: 9ch; margin-bottom: 1rem; }
-    .hero-grid { display: grid; grid-template-columns: 1.05fr .95fr; gap: 2rem; align-items: center; }
-    .hero-copy p { max-width: 58ch; color: var(--soft); font-size: 1.04rem; margin-bottom: 1.5rem; }
+    .hero {
+      padding: 5.5rem 0 4rem;
+      background: linear-gradient(180deg, var(--warm), #f4eeea 100%);
+    }
+    .eyebrow {
+      font-size: .72rem;
+      letter-spacing: .26em;
+      text-transform: uppercase;
+      color: var(--rose);
+      margin-bottom: 1rem;
+    }
+    h1, h2, h3 {
+      font-family: 'Playfair Display', serif;
+      line-height: 1.1;
+      color: var(--plum-deep);
+    }
+    h1 {
+      font-size: clamp(2.8rem, 7vw, 5.3rem);
+      max-width: 9ch;
+      margin-bottom: 1rem;
+    }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.05fr .95fr;
+      gap: 2rem;
+      align-items: center;
+    }
+    .hero-copy p {
+      max-width: 58ch;
+      color: var(--soft);
+      font-size: 1.04rem;
+      margin-bottom: 1.5rem;
+    }
     .hero-actions { display: flex; gap: .9rem; flex-wrap: wrap; }
     .hero-card {
-      background: var(--card); border: 1px solid var(--line); border-radius: 28px; overflow: hidden;
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      overflow: hidden;
       box-shadow: 0 18px 50px rgba(74,55,66,.08);
     }
     .hero-card img { width: 100%; height: 430px; object-fit: cover; }
@@ -94,58 +147,148 @@
     .hero-card-title { font-size: 1.25rem; margin-bottom: .35rem; }
     .hero-card-text { font-size: .95rem; color: var(--soft); }
 
-    /* ── Sections ── */
     section { padding: 4.5rem 0; }
-    .section-head { display: flex; justify-content: space-between; gap: 1.25rem; align-items: end; margin-bottom: 2rem; }
+    .section-head {
+      display: flex;
+      justify-content: space-between;
+      gap: 1.25rem;
+      align-items: end;
+      margin-bottom: 2rem;
+    }
     .section-head p { max-width: 50ch; color: var(--soft); }
-    .category-pills { display: flex; gap: .7rem; flex-wrap: wrap; margin-top: 1.1rem; }
-    .pill { padding: .55rem .95rem; border: 1px solid var(--line); border-radius: 999px; background: #fff; font-size: .82rem; color: var(--soft); }
+    .category-pills,
+    .filter-bar { display: flex; gap: .7rem; flex-wrap: wrap; margin-top: 1.1rem; }
+    .pill,
+    .filter-chip {
+      display: inline-flex;
+      align-items: center;
+      min-height: 38px;
+      padding: .55rem .95rem;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: #fff;
+      font-size: .82rem;
+      color: var(--soft);
+      cursor: pointer;
+    }
+    .pill:hover,
+    .filter-chip:hover,
+    .filter-chip.is-active {
+      color: var(--plum-deep);
+      border-color: rgba(74,55,66,.45);
+      background: #f2e8ec;
+    }
 
-    /* ── Cards ── */
-    .featured-grid, .product-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
-    .feature-card, .product-card {
-      background: var(--card); border: 1px solid var(--line); border-radius: 24px; overflow: hidden;
+    .featured-grid,
+    .product-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+    .feature-card,
+    .product-card,
+    .detail-card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      overflow: hidden;
       box-shadow: 0 14px 36px rgba(74,55,66,.06);
     }
-    .feature-card img, .product-card img { width: 100%; height: 270px; object-fit: cover; background: #f0ebe7; }
+    .feature-card img,
+    .product-card img {
+      width: 100%;
+      height: 270px;
+      object-fit: cover;
+      background: #f0ebe7;
+    }
     .card-body { padding: 1.15rem 1.1rem 1.2rem; }
     .tag {
-      display: inline-block; padding: .35rem .65rem; background: #f2e8ec;
-      color: var(--plum-deep); border-radius: 999px; font-size: .72rem;
-      letter-spacing: .08em; text-transform: uppercase; font-weight: 700; margin-bottom: .75rem;
+      display: inline-block;
+      padding: .35rem .65rem;
+      background: #f2e8ec;
+      color: var(--plum-deep);
+      border-radius: 999px;
+      font-size: .72rem;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      font-weight: 700;
+      margin-bottom: .75rem;
     }
     .card-title { font-size: 1.35rem; margin-bottom: .45rem; }
     .card-text { font-size: .95rem; color: var(--soft); margin-bottom: 1rem; }
-    .product-meta { display: flex; justify-content: space-between; gap: .8rem; align-items: center; margin: .85rem 0 1rem; }
-    .meta-type { font-size: .76rem; letter-spacing: .12em; text-transform: uppercase; color: var(--rose); font-weight: 700; }
+    .product-meta {
+      display: flex;
+      justify-content: space-between;
+      gap: .8rem;
+      align-items: center;
+      margin: .85rem 0 1rem;
+    }
+    .meta-type {
+      font-size: .76rem;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--rose);
+      font-weight: 700;
+    }
     .meta-note { font-size: .8rem; color: var(--taupe); }
     .cta-row { display: flex; gap: .7rem; flex-wrap: wrap; }
+    .filter-status {
+      color: var(--success);
+      font-weight: 700;
+      font-size: .9rem;
+      margin-top: .8rem;
+    }
+    .product-card[hidden] { display: none; }
 
-    /* ── Collections ── */
-    .collections { background: #f5efeb; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+    .collections {
+      background: #f5efeb;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
     .collection-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; }
-    .collection-card { background: #fff; border: 1px solid var(--line); border-radius: 20px; padding: 1.1rem; }
+    .collection-card {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 1.1rem;
+    }
     .collection-card h3 { font-size: 1.1rem; margin-bottom: .35rem; }
-    .collection-card p { font-size: .92rem; color: var(--soft); }
+    .collection-card p { font-size: .92rem; color: var(--soft); margin-bottom: 1rem; }
 
-    /* ── Inquiry ── */
+    .pdp { background: var(--warm); }
+    .detail-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.25rem; }
+    .detail-card { padding: 1.25rem; }
+    .detail-card h3 { font-size: 1.45rem; margin-bottom: .75rem; }
+    .note-list { display: grid; gap: .65rem; margin: 1rem 0; }
+    .note-item { border-left: 3px solid var(--rose); padding-left: .8rem; }
+    .note-item strong {
+      display: block;
+      color: var(--plum-deep);
+      font-size: .78rem;
+      letter-spacing: .13em;
+      text-transform: uppercase;
+    }
+    .note-item span { color: var(--soft); font-size: .95rem; }
+    .source-note { color: var(--taupe); font-size: .78rem; margin-top: 1rem; }
+
     .inquiry { background: linear-gradient(180deg, #fff, #f7f2ef); }
-    .inquiry-box { background: var(--card); border: 1px solid var(--line); border-radius: 28px; padding: 1.4rem; box-shadow: 0 16px 40px rgba(74,55,66,.06); }
+    .inquiry-box {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 1.4rem;
+      box-shadow: 0 16px 40px rgba(74,55,66,.06);
+    }
     .inquiry-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 1rem; }
-    .info-item { padding: 1rem; border: 1px solid var(--line); border-radius: 18px; background: #fff; }
+    .info-item { padding: 1rem; border: 1px solid var(--line); border-radius: 8px; background: #fff; }
     .info-item strong { display: block; color: var(--plum-deep); margin-bottom: .35rem; }
     .info-item span { color: var(--soft); font-size: .95rem; }
-
-    /* ── Footer ── */
     .footer { padding: 2rem 0 3rem; color: var(--soft); }
     .footer-inner {
-      display: flex; justify-content: space-between; gap: 1rem; align-items: center;
-      border-top: 1px solid var(--line); padding-top: 1.3rem;
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      align-items: center;
+      border-top: 1px solid var(--line);
+      padding-top: 1.3rem;
     }
 
-    /* ─────────────────────────────────────────────
-       GOOGLE TRANSLATE — matches index.html styling
-    ───────────────────────────────────────────── */
     #google_translate_element {
       display: inline-block;
       vertical-align: middle;
@@ -155,13 +298,8 @@
       background-color: transparent !important;
       border: 1px solid rgba(111,90,103,0.2) !important;
       padding: 0.5rem 0.8rem !important;
-      border-radius: 0px !important;
+      border-radius: 0 !important;
       cursor: pointer;
-      transition: border-color 0.3s, background-color 0.3s;
-    }
-    .goog-te-gadget-simple:hover {
-      border-color: var(--plum) !important;
-      background-color: rgba(111,90,103,0.04) !important;
     }
     .goog-te-gadget-simple span,
     .goog-te-menu-value span {
@@ -171,29 +309,32 @@
       letter-spacing: 0.15em !important;
       text-transform: uppercase !important;
     }
-    .goog-te-gadget-icon { display: none !important; }
-    .goog-logo-link,
-    .goog-logo-link:link,
-    .goog-logo-link:visited,
-    .goog-logo-link:hover,
-    .goog-logo-link:active { display: none !important; }
+    .goog-te-gadget-icon,
+    .goog-logo-link { display: none !important; }
     .goog-te-gadget { color: transparent !important; font-size: 0 !important; }
     .goog-te-banner-frame.skiptranslate { display: none !important; }
-    body { top: 0px !important; }
 
-    /* ── Responsive ── */
     @media (max-width: 1024px) {
-      .featured-grid, .product-grid { grid-template-columns: repeat(2, 1fr); }
+      .featured-grid,
+      .product-grid,
+      .detail-grid { grid-template-columns: repeat(2, 1fr); }
       .collection-grid { grid-template-columns: repeat(2, 1fr); }
-      .hero-grid, .inquiry-grid { grid-template-columns: 1fr; }
+      .hero-grid,
+      .inquiry-grid { grid-template-columns: 1fr; }
       .hero-card img { height: 360px; }
     }
     @media (max-width: 700px) {
-      .featured-grid, .product-grid, .collection-grid { grid-template-columns: 1fr; }
-      .nav-inner, .footer-inner { flex-direction: column; align-items: flex-start; }
+      .featured-grid,
+      .product-grid,
+      .collection-grid,
+      .detail-grid { grid-template-columns: 1fr; }
+      .nav-inner,
+      .footer-inner { flex-direction: column; align-items: flex-start; }
       h1 { max-width: none; }
       .hero { padding-top: 4.2rem; }
-      .hero-card img, .feature-card img, .product-card img { height: 240px; }
+      .hero-card img,
+      .feature-card img,
+      .product-card img { height: 240px; }
     }
   </style>
 
@@ -207,34 +348,37 @@
     }
   </script>
 </head>
-<body>
 
+<body>
   <nav class="nav">
     <div class="container nav-inner">
-      <div class="brand">Maka <span>&amp; Yura</span></div>
-      <div class="nav-links">
+      <a class="brand" href="/" aria-label="Maka and Yura homepage">Maka <span>&amp; Yura</span></a>
+
+      <div class="nav-links" aria-label="Primary navigation">
         <a href="#featured">Featured</a>
-        <a href="#products">Products</a>
-        <a href="#collections">Collections</a>
+        <a href="#products" data-filter-link="all">Collection</a>
+        <a href="#products" data-filter-link="perfume">Fragrance Boutique</a>
         <a href="#inquire">Inquire</a>
         <a href="index.html" class="btn btn-outline" style="padding:.7rem 1rem">Back to Spa</a>
       </div>
-      <!-- Google Translate widget — same position and styling as index.html -->
+
       <div id="google_translate_element"></div>
     </div>
   </nav>
 
-  <header class="hero">
+  <header class="hero" id="home">
     <div class="container hero-grid">
       <div class="hero-copy">
         <div class="eyebrow">Retail Boutique</div>
         <h1>Perfumes &amp; Clarins products, curated for everyday luxury.</h1>
-        <p>Discover a handpicked retail selection from Maka &amp; Yura Beauty Spa, including Clarins skincare, Clarins Men essentials, and iconic fragrances. Browse the collection, then contact the spa directly to confirm availability and purchase.</p>
+        <p>Discover a handpicked retail selection from Maka &amp; Yura Beauty Spa, including Clarins skincare, Clarins Men essentials, and iconic fragrances. Browse the collection directly, filter by mood or note family, then contact the spa to confirm availability and purchase.</p>
+
         <div class="hero-actions">
-          <a class="btn btn-primary" href="#products">Shop the selection</a>
-          <a class="btn btn-outline" href="https://www.instagram.com/makayuraspa/" target="_blank" rel="noopener">Ask on Instagram</a>
+          <a class="btn btn-primary" href="#products" data-filter-link="all">Shop the selection</a>
+          <a class="btn btn-outline" href="#products" data-filter-link="perfume">Fragrance boutique</a>
         </div>
       </div>
+
       <div class="hero-card">
         <img src="images/guccifloragorgeousgardenia.jpg" alt="Gucci Flora Gorgeous Gardenia perfume bottle and box">
         <div class="hero-card-body">
@@ -252,8 +396,9 @@
           <div class="eyebrow">Featured highlights</div>
           <h2>Best first impressions</h2>
         </div>
-        <p>From signature scents to Clarins essentials — the products that define what we do best.</p>
+        <p>From signature scents to Clarins essentials - the products that define what we do best.</p>
       </div>
+
       <div class="featured-grid">
         <article class="feature-card">
           <img src="images/clarinsbrightplus.jpg" alt="Clarins Bright Plus dark spot-targeting treatment essence">
@@ -266,23 +411,25 @@
             </div>
           </div>
         </article>
+
         <article class="feature-card">
           <img src="images/giorgioarmaniperfume.jpg" alt="Giorgio Armani Si eau de parfum bottle">
           <div class="card-body">
             <div class="tag">Perfume</div>
-            <h3 class="card-title">Giorgio Armani Sì</h3>
-            <p class="card-text">A recognizable fragrance classic that gives the retail page an aspirational, boutique fragrance-store feel.</p>
+            <h3 class="card-title">Giorgio Armani Si</h3>
+            <p class="card-text">A recognizable fragrance classic with blackcurrant, rose, vanilla, and patchouli character.</p>
             <div class="cta-row">
               <a class="btn btn-primary" href="https://www.instagram.com/makayuraspa/" target="_blank" rel="noopener">Inquire to buy</a>
             </div>
           </div>
         </article>
+
         <article class="feature-card">
           <img src="images/guerlainpetiterobenoir.jpg" alt="Guerlain La Petite Robe Noire perfume bottle">
           <div class="card-body">
             <div class="tag">Perfume</div>
             <h3 class="card-title">La Petite Robe Noire</h3>
-            <p class="card-text">An elegant fragrance choice that adds variety and reinforces the spa's luxury perfume offering.</p>
+            <p class="card-text">A playful floral-fruity fragrance with cherry, rose, black tea, and patchouli depth.</p>
             <div class="cta-row">
               <a class="btn btn-primary" href="https://www.instagram.com/makayuraspa/" target="_blank" rel="noopener">Inquire to buy</a>
             </div>
@@ -299,45 +446,68 @@
           <div class="eyebrow">Collections</div>
           <h2>Browse by interest</h2>
         </div>
-        <div class="category-pills">
-          <span class="pill">Clarins Skincare</span>
-          <span class="pill">Clarins Men</span>
-          <span class="pill">Perfumes</span>
-          <span class="pill">Boutique Selection</span>
+
+        <div class="category-pills" aria-label="Interest tags">
+          <button class="pill" type="button" data-filter-button="all">All Products</button>
+          <button class="pill" type="button" data-filter-button="fresh">Fresh</button>
+          <button class="pill" type="button" data-filter-button="woody">Woody</button>
+          <button class="pill" type="button" data-filter-button="date-night">Date Night</button>
+          <button class="pill" type="button" data-filter-button="floral">Floral</button>
+          <button class="pill" type="button" data-filter-button="clarins-men">Clarins Men</button>
         </div>
       </div>
+
       <div class="collection-grid">
-        <div class="collection-card">
+        <article class="collection-card">
           <h3>Glow &amp; radiance</h3>
           <p>Products that visually communicate brightness, smoothing, hydration, and refreshed-looking skin.</p>
-        </div>
-        <div class="collection-card">
+          <button class="btn btn-outline" type="button" data-filter-button="skincare">View skincare</button>
+        </article>
+
+        <article class="collection-card">
           <h3>Body care</h3>
           <p>Retail products that complement spa visits and help clients continue the experience at home.</p>
-        </div>
-        <div class="collection-card">
+          <button class="btn btn-outline" type="button" data-filter-button="body-care">View body care</button>
+        </article>
+
+        <article class="collection-card">
           <h3>Clarins Men</h3>
           <p>A clear men's shelf with cleansing, moisture, and line-care options in a distinct visual range.</p>
-        </div>
-        <div class="collection-card">
+          <button class="btn btn-outline" type="button" data-filter-button="clarins-men">View men's range</button>
+        </article>
+
+        <article class="collection-card">
           <h3>Fragrance boutique</h3>
-          <p>Recognizable perfume names that make the spa feel like a destination for both treatments and retail discovery.</p>
-        </div>
+          <p>Perfume names that make the spa feel like a destination for both treatments and retail discovery.</p>
+          <button class="btn btn-outline" type="button" data-filter-button="perfume">View perfumes</button>
+        </article>
       </div>
     </div>
   </section>
 
-  <section id="products">
+  <section id="products" aria-labelledby="products-heading">
     <div class="container">
       <div class="section-head">
         <div>
-          <div class="eyebrow">Product selection</div>
-          <h2>Retail products available for inquiry</h2>
+          <div class="eyebrow">Product listing</div>
+          <h2 id="products-heading">Retail products available for inquiry</h2>
+          <p id="filter-status" class="filter-status" aria-live="polite">Showing all products.</p>
         </div>
       </div>
-      <div class="product-grid">
 
-        <article class="product-card">
+      <div class="filter-bar" aria-label="Product filters">
+        <button class="filter-chip is-active" type="button" data-filter-button="all">All</button>
+        <button class="filter-chip" type="button" data-filter-button="perfume">Perfumes</button>
+        <button class="filter-chip" type="button" data-filter-button="fresh">Fresh</button>
+        <button class="filter-chip" type="button" data-filter-button="woody">Woody</button>
+        <button class="filter-chip" type="button" data-filter-button="date-night">Date Night</button>
+        <button class="filter-chip" type="button" data-filter-button="floral">Floral</button>
+        <button class="filter-chip" type="button" data-filter-button="skincare">Skincare</button>
+        <button class="filter-chip" type="button" data-filter-button="clarins-men">Clarins Men</button>
+      </div>
+
+      <div class="product-grid" id="product-grid">
+        <article class="product-card" data-tags="skincare radiance clarins">
           <img src="images/clarinsbrightplus.jpg" alt="Clarins Bright Plus essence">
           <div class="card-body">
             <div class="tag">Clarins skincare</div>
@@ -348,7 +518,7 @@
           </div>
         </article>
 
-        <article class="product-card">
+        <article class="product-card" data-tags="skincare radiance clarins">
           <img src="images/clarinscryofacemask.jpg" alt="Clarins Cryo-Flash Cream-Mask">
           <div class="card-body">
             <div class="tag">Clarins skincare</div>
@@ -359,7 +529,7 @@
           </div>
         </article>
 
-        <article class="product-card">
+        <article class="product-card" data-tags="skincare clarins">
           <img src="images/clarinsmultiintensive.jpg" alt="Clarins Multi-Intensive smoothing treatment essence">
           <div class="card-body">
             <div class="tag">Clarins skincare</div>
@@ -370,29 +540,32 @@
           </div>
         </article>
 
-        <article class="product-card">
+        <article class="product-card" data-tags="body-care clarins">
           <img src="images/clarinslaitcorps.jpg" alt="Clarins Body-Smoothing Moisture Milk with aloe vera">
           <div class="card-body">
             <div class="tag">Clarins body care</div>
             <h3 class="card-title">Body-Smoothing Moisture Milk</h3>
             <p class="card-text">Aloe vera body moisturizer for normal skin.</p>
             <div class="product-meta"><span class="meta-type">Body care</span><span class="meta-note">Price on request</span></div>
-            <div class="cta-row"><a class="btn btn-primary" href="images/clarinslaitcorps.jpg" target="_blank" rel="noopener">Inquire</a></div>
-          </div>
-        </article>
-
-        <article class="product-card">
-          <img src="images/clarinseaudynamisante.jpg" alt="Clarins Eau Dynamisante fragrance bottle">
-          <div class="card-body">
-            <div class="tag">Clarins fragrance</div>
-            <h3 class="card-title">Eau Dynamisante</h3>
-            <p class="card-text">A Clarins fragrance and body-care classic with a wellness-oriented positioning.</p>
-            <div class="product-meta"><span class="meta-type">Fragrance</span><span class="meta-note">Price on request</span></div>
             <div class="cta-row"><a class="btn btn-primary" href="https://www.instagram.com/makayuraspa/" target="_blank" rel="noopener">Inquire</a></div>
           </div>
         </article>
 
-        <article class="product-card">
+        <article class="product-card" data-tags="perfume fresh clarins">
+          <img src="images/clarinseaudynamisante.jpg" alt="Clarins Eau Dynamisante fragrance bottle">
+          <div class="card-body">
+            <div class="tag">Clarins fragrance</div>
+            <h3 class="card-title">Eau Dynamisante</h3>
+            <p class="card-text">A fresh Clarins treatment fragrance with aromatic citrus energy.</p>
+            <div class="product-meta"><span class="meta-type">Fragrance</span><span class="meta-note">Price on request</span></div>
+            <div class="cta-row">
+              <a class="btn btn-primary" href="#detail-eau-dynamisante">View notes</a>
+              <a class="btn btn-outline" href="https://www.instagram.com/makayuraspa/" target="_blank" rel="noopener">Inquire</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="product-card" data-tags="clarins-men cleanser">
           <img src="images/clarinsmensfacewash.jpg" alt="Clarins Men active face wash tube">
           <div class="card-body">
             <div class="tag">Clarins Men</div>
@@ -403,18 +576,18 @@
           </div>
         </article>
 
-        <article class="product-card">
+        <article class="product-card" data-tags="clarins-men treatment">
           <img src="images/clarinslinecontrolmen.jpg" alt="Clarins Men Line-Control Cream bottle">
           <div class="card-body">
             <div class="tag">Clarins Men</div>
             <h3 class="card-title">Line-Control Cream</h3>
-            <p class="card-text">Anti-rides fermeté cream presented for dry skin and firming care.</p>
+            <p class="card-text">Anti-wrinkle firming cream presented for dry skin and firming care.</p>
             <div class="product-meta"><span class="meta-type">Men's treatment</span><span class="meta-note">Price on request</span></div>
             <div class="cta-row"><a class="btn btn-primary" href="https://www.instagram.com/makayuraspa/" target="_blank" rel="noopener">Inquire</a></div>
           </div>
         </article>
 
-        <article class="product-card">
+        <article class="product-card" data-tags="clarins-men hydration">
           <img src="images/clarinsmensgelhydratant.jpg" alt="Clarins Men moisture range bottles">
           <div class="card-body">
             <div class="tag">Clarins Men</div>
@@ -425,61 +598,149 @@
           </div>
         </article>
 
-        <article class="product-card">
+        <article class="product-card" data-tags="perfume fresh floral">
           <img src="images/bvglariomnia.jpg" alt="Bvlgari Omnia Coral fragrance image">
           <div class="card-body">
             <div class="tag">Perfume</div>
             <h3 class="card-title">Bvlgari Omnia Coral</h3>
-            <p class="card-text">A vibrant women's fragrance visual that adds bold color to the perfume lineup.</p>
+            <p class="card-text">A vibrant fruity-floral women's fragrance with bright coral energy.</p>
             <div class="product-meta"><span class="meta-type">Women's fragrance</span><span class="meta-note">Price on request</span></div>
-            <div class="cta-row"><a class="btn btn-primary" href="https://www.instagram.com/makayuraspa/" target="_blank" rel="noopener">Inquire</a></div>
+            <div class="cta-row">
+              <a class="btn btn-primary" href="#detail-omnia-coral">View notes</a>
+              <a class="btn btn-outline" href="https://www.instagram.com/makayuraspa/" target="_blank" rel="noopener">Inquire</a>
+            </div>
           </div>
         </article>
 
-        <article class="product-card">
+        <article class="product-card" data-tags="perfume date-night woody">
           <img src="images/giorgioarmaniperfume.jpg" alt="Giorgio Armani Si perfume">
           <div class="card-body">
             <div class="tag">Perfume</div>
-            <h3 class="card-title">Giorgio Armani Sì</h3>
-            <p class="card-text">An elegant eau de parfum with timeless boutique appeal.</p>
+            <h3 class="card-title">Giorgio Armani Si</h3>
+            <p class="card-text">A sophisticated eau de parfum with blackcurrant, rose, vanilla, and patchouli.</p>
             <div class="product-meta"><span class="meta-type">Women's fragrance</span><span class="meta-note">Price on request</span></div>
-            <div class="cta-row"><a class="btn btn-primary" href="https://www.instagram.com/makayuraspa/" target="_blank" rel="noopener">Inquire</a></div>
+            <div class="cta-row">
+              <a class="btn btn-primary" href="#detail-armani-si">View notes</a>
+              <a class="btn btn-outline" href="https://www.instagram.com/makayuraspa/" target="_blank" rel="noopener">Inquire</a>
+            </div>
           </div>
         </article>
 
-        <article class="product-card">
+        <article class="product-card" data-tags="perfume floral date-night">
           <img src="images/guccifloragorgeousgardenia.jpg" alt="Gucci Flora Gorgeous Gardenia perfume bottle and box">
           <div class="card-body">
             <div class="tag">Perfume</div>
             <h3 class="card-title">Gucci Flora Gorgeous Gardenia</h3>
-            <p class="card-text">A floral fragrance pick with standout packaging that works beautifully on a retail page.</p>
+            <p class="card-text">A joyful floral perfume built around gardenia, jasmine, pear blossom, and brown sugar warmth.</p>
             <div class="product-meta"><span class="meta-type">Women's fragrance</span><span class="meta-note">Price on request</span></div>
-            <div class="cta-row"><a class="btn btn-primary" href="https://www.instagram.com/makayuraspa/" target="_blank" rel="noopener">Inquire</a></div>
+            <div class="cta-row">
+              <a class="btn btn-primary" href="#detail-gardenia">View notes</a>
+              <a class="btn btn-outline" href="https://www.instagram.com/makayuraspa/" target="_blank" rel="noopener">Inquire</a>
+            </div>
           </div>
         </article>
 
-        <article class="product-card">
+        <article class="product-card" data-tags="perfume floral woody fresh">
           <img src="images/guccifloragorgeousjasmine.jpg" alt="Gucci Flora Gorgeous Jasmine perfume bottle and box">
           <div class="card-body">
             <div class="tag">Perfume</div>
             <h3 class="card-title">Gucci Flora Gorgeous Jasmine</h3>
-            <p class="card-text">A second Gucci Flora option that adds variety within the fragrance selection.</p>
+            <p class="card-text">A luminous jasmine scent with mandarin brightness and sandalwood softness.</p>
             <div class="product-meta"><span class="meta-type">Women's fragrance</span><span class="meta-note">Price on request</span></div>
-            <div class="cta-row"><a class="btn btn-primary" href="https://www.instagram.com/makayuraspa/" target="_blank" rel="noopener">Inquire</a></div>
+            <div class="cta-row">
+              <a class="btn btn-primary" href="#detail-jasmine">View notes</a>
+              <a class="btn btn-outline" href="https://www.instagram.com/makayuraspa/" target="_blank" rel="noopener">Inquire</a>
+            </div>
           </div>
         </article>
 
-        <article class="product-card">
+        <article class="product-card" data-tags="perfume date-night floral woody">
           <img src="images/guerlainpetiterobenoir.jpg" alt="Guerlain La Petite Robe Noire perfume bottle">
           <div class="card-body">
             <div class="tag">Perfume</div>
             <h3 class="card-title">Guerlain La Petite Robe Noire</h3>
-            <p class="card-text">A refined fragrance image that reinforces the premium perfume assortment.</p>
+            <p class="card-text">A Parisian floral-fruity fragrance with cherry, rose, black tea, licorice, and patchouli depth.</p>
             <div class="product-meta"><span class="meta-type">Women's fragrance</span><span class="meta-note">Price on request</span></div>
-            <div class="cta-row"><a class="btn btn-primary" href="https://www.instagram.com/makayuraspa/" target="_blank" rel="noopener">Inquire</a></div>
+            <div class="cta-row">
+              <a class="btn btn-primary" href="#detail-robe-noire">View notes</a>
+              <a class="btn btn-outline" href="https://www.instagram.com/makayuraspa/" target="_blank" rel="noopener">Inquire</a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="pdp" id="product-details" aria-labelledby="details-heading">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <div class="eyebrow">Perfume detail pages</div>
+          <h2 id="details-heading">Notes, character, and richer descriptions</h2>
+        </div>
+        <p>Each perfume now has a structured product-detail block with top notes, heart notes, base notes, and narrative copy.</p>
+      </div>
+
+      <div class="detail-grid">
+        <article class="detail-card" id="detail-gardenia">
+          <h3>Gucci Flora Gorgeous Gardenia</h3>
+          <p>A joyful white-floral fragrance centered on gardenia and softened by fruit, jasmine, and sweet warmth. It is positioned for customers who want a bright, feminine, easy-to-love perfume with a polished boutique feel.</p>
+          <div class="note-list">
+            <div class="note-item"><strong>Top Notes</strong><span>Pear blossom, red berries, Italian mandarin</span></div>
+            <div class="note-item"><strong>Heart Notes</strong><span>White gardenia, jasmine absolute, frangipani flower</span></div>
+            <div class="note-item"><strong>Base Notes</strong><span>Brown sugar accord, patchouli</span></div>
           </div>
         </article>
 
+        <article class="detail-card" id="detail-jasmine">
+          <h3>Gucci Flora Gorgeous Jasmine</h3>
+          <p>A luminous floral perfume that opens with sparkling citrus and develops into a creamy jasmine signature. Sandalwood gives the dry-down a soft, elegant finish for everyday luxury and warm evening wear.</p>
+          <div class="note-list">
+            <div class="note-item"><strong>Top Notes</strong><span>Mandarin essence, bergamot, black pepper</span></div>
+            <div class="note-item"><strong>Heart Notes</strong><span>Grandiflorum jasmine, magnolia accord, damask rose</span></div>
+            <div class="note-item"><strong>Base Notes</strong><span>Sandalwood, benzoin, patchouli</span></div>
+          </div>
+        </article>
+
+        <article class="detail-card" id="detail-armani-si">
+          <h3>Giorgio Armani Si Eau de Parfum</h3>
+          <p>A refined feminine fragrance with a blackcurrant opening, floral heart, and warm vanilla-patchouli trail. The mood is elegant, confident, and suitable for customers shopping for a signature scent or a date-night fragrance.</p>
+          <div class="note-list">
+            <div class="note-item"><strong>Top Notes</strong><span>Blackcurrant nectar, mandarin</span></div>
+            <div class="note-item"><strong>Heart Notes</strong><span>May rose, freesia</span></div>
+            <div class="note-item"><strong>Base Notes</strong><span>Vanilla, patchouli, ambroxan, woody notes</span></div>
+          </div>
+        </article>
+
+        <article class="detail-card" id="detail-robe-noire">
+          <h3>Guerlain La Petite Robe Noire</h3>
+          <p>A playful Parisian floral-fruity fragrance that pairs cherry and rose with darker accents of tea, licorice, patchouli, and vanilla. It works well for customers seeking a memorable evening scent with sweetness and depth.</p>
+          <div class="note-list">
+            <div class="note-item"><strong>Top Notes</strong><span>Black cherry, bergamot, almond, red berries</span></div>
+            <div class="note-item"><strong>Heart Notes</strong><span>Rose, black tea, licorice</span></div>
+            <div class="note-item"><strong>Base Notes</strong><span>Patchouli, vanilla, tonka bean, iris, aniseed</span></div>
+          </div>
+        </article>
+
+        <article class="detail-card" id="detail-omnia-coral">
+          <h3>Bvlgari Omnia Coral</h3>
+          <p>A bright fruity-floral fragrance with sparkling citrus and red-fruit energy. Its hibiscus and water-lily character makes it a fresh, colorful option for daytime wear and warm-weather gifting.</p>
+          <div class="note-list">
+            <div class="note-item"><strong>Top Notes</strong><span>Bergamot, goji berries</span></div>
+            <div class="note-item"><strong>Heart Notes</strong><span>Hibiscus, water lily, pomegranate</span></div>
+            <div class="note-item"><strong>Base Notes</strong><span>Cedarwood, musk</span></div>
+          </div>
+        </article>
+
+        <article class="detail-card" id="detail-eau-dynamisante">
+          <h3>Clarins Eau Dynamisante</h3>
+          <p>A fresh treatment fragrance from Clarins with aromatic citrus and herbal energy. It supports the page's wellness-retail positioning by connecting fragrance discovery with the spa's body-care experience.</p>
+          <div class="note-list">
+            <div class="note-item"><strong>Top Notes</strong><span>Orange, coriander, caraway, Amalfi lemon</span></div>
+            <div class="note-item"><strong>Heart Notes</strong><span>Carnation, rosemary, cardamom, thyme</span></div>
+            <div class="note-item"><strong>Base Notes</strong><span>Patchouli</span></div>
+          </div>
+        </article>
       </div>
     </div>
   </section>
@@ -492,20 +753,18 @@
           <h2>Ask about availability and pricing</h2>
         </div>
       </div>
+
       <div class="inquiry-box">
         <div class="cta-row" style="margin-bottom:1rem">
           <a class="btn btn-primary" href="tel:+250787305898">Call: +250 787 305 898</a>
           <a class="btn btn-outline" href="https://www.instagram.com/makayuraspa/" target="_blank" rel="noopener">Instagram DM</a>
           <a class="btn btn-outline" href="https://www.facebook.com/MakaYuraSpa/" target="_blank" rel="noopener">Facebook</a>
         </div>
+
         <div class="inquiry-grid">
           <div class="info-item">
             <strong>Suggested inquiry message</strong>
             <span>Hello Maka &amp; Yura, I would like to ask about the availability and current price of [product name]. Please let me know how I can purchase it.</span>
-          </div>
-          <div class="info-item">
-            <strong>Best use for this page</strong>
-            <span>Link this page from the main website navigation as "Products" or "Boutique," so visitors can browse the retail side of the spa separately from treatments.</span>
           </div>
         </div>
       </div>
@@ -521,14 +780,81 @@
     </div>
   </footer>
 
-  <!--
-    NOTE: products.html has no scroll listeners, no IntersectionObserver,
-    and no interactive JS beyond the Google Translate widget initialised
-    in the <head>. No JS refactoring was needed (no Fix 1 or Fix 4
-    equivalents exist here). The only JS changes are:
-      - Fix 2: No <form> was present — not applicable.
-      - Fix 3: Translate script deferred (applied above in <head>).
-  -->
+  <script>
+    const filterLabels = {
+      all: 'all products',
+      perfume: 'perfumes',
+      fresh: 'Fresh',
+      woody: 'Woody',
+      'date-night': 'Date Night',
+      floral: 'Floral',
+      skincare: 'skincare',
+      'body-care': 'body care',
+      'clarins-men': 'Clarins Men'
+    };
 
+    const productCards = Array.from(document.querySelectorAll('.product-card'));
+    const filterStatus = document.getElementById('filter-status');
+    const filterControls = Array.from(document.querySelectorAll('[data-filter-button]'));
+
+    function normalizeFilter(filter) {
+      return filter && filterLabels[filter] ? filter : 'all';
+    }
+
+    function setActiveFilter(filter, updateUrl = true) {
+      const activeFilter = normalizeFilter(filter);
+      let visibleCount = 0;
+
+      productCards.forEach((card) => {
+        const tags = (card.dataset.tags || '').split(' ');
+        const isVisible = activeFilter === 'all' || tags.includes(activeFilter);
+        card.hidden = !isVisible;
+        if (isVisible) visibleCount += 1;
+      });
+
+      filterControls.forEach((control) => {
+        control.classList.toggle('is-active', control.dataset.filterButton === activeFilter);
+        control.setAttribute('aria-pressed', String(control.dataset.filterButton === activeFilter));
+      });
+
+      filterStatus.textContent = activeFilter === 'all'
+        ? 'Showing all products.'
+        : `Showing ${visibleCount} product${visibleCount === 1 ? '' : 's'} tagged ${filterLabels[activeFilter]}.`;
+
+      if (updateUrl) {
+        const url = activeFilter === 'all' ? '#products' : `#products?tag=${encodeURIComponent(activeFilter)}`;
+        history.replaceState(null, '', url);
+      }
+
+      document.getElementById('products').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+
+    function filterFromLocation() {
+      const hash = window.location.hash || '';
+      const queryIndex = hash.indexOf('?');
+      if (queryIndex === -1) return 'all';
+
+      const params = new URLSearchParams(hash.slice(queryIndex + 1));
+      return normalizeFilter(params.get('tag'));
+    }
+
+    document.addEventListener('click', (event) => {
+      const filterButton = event.target.closest('[data-filter-button]');
+      const filterLink = event.target.closest('[data-filter-link]');
+
+      if (!filterButton && !filterLink) return;
+
+      event.preventDefault();
+
+      const selectedFilter = filterButton
+        ? filterButton.dataset.filterButton
+        : filterLink.dataset.filterLink;
+
+      setActiveFilter(selectedFilter);
+    });
+
+    window.addEventListener('hashchange', () => setActiveFilter(filterFromLocation(), false));
+    setActiveFilter(filterFromLocation(), false);
+  </script>
 </body>
 </html>
